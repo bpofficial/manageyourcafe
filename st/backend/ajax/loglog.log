@@ -1,0 +1,730 @@
+Array
+(
+    [0] => Array
+        (
+            [id] => 93
+            [store_id] => ca660cbc33a11517998b6039e125e1a01712e1ba
+            [date_from] => 2018-09-10
+            [monday] => {"Adam":{"start":"05:00 am","finish":"Close"},"Sammi":{"start":"05:00 am","finish":"2:00 pm"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [tuesday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [wednesday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"05:00 am","finish":"Close"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [thursday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [friday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [saturday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [sunday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [edited] => 0
+            [comments] => 
+        )
+
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Array
+(
+    [0] => Array
+        (
+            [id] => 93
+            [store_id] => ca660cbc33a11517998b6039e125e1a01712e1ba
+            [date_from] => 2018-09-10
+            [monday] => {"Adam":{"start":"05:00 am","finish":"Close"},"Sammi":{"start":"05:00 am","finish":"2:00 pm"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [tuesday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [wednesday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"05:00 am","finish":"Close"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [thursday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [friday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [saturday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [sunday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [edited] => 0
+            [comments] => 
+        )
+
+)
+
+05:00 am
+Close
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+05:00 am
+2:00 pm
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+05:00 am
+Close
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+Array
+(
+    [0] => Array
+        (
+            [id] => 94
+            [store_id] => ca660cbc33a11517998b6039e125e1a01712e1ba
+            [date_from] => 2018-09-17
+            [monday] => {"Adam":{"start":"05:00 am","finish":"05:00 am"},"Sammi":{"start":"05:00 am","finish":"05:00 am"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [tuesday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [wednesday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"05:00 am","finish":"05:00 am"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [thursday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [friday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [saturday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [sunday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [edited] => 0
+            [comments] => 
+        )
+
+)
+
+05:00 am
+05:00 am
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+05:00 am
+05:00 am
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+05:00 am
+05:00 am
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+Array
+(
+    [0] => Array
+        (
+            [id] => 93
+            [store_id] => ca660cbc33a11517998b6039e125e1a01712e1ba
+            [date_from] => 2018-09-10
+            [monday] => {"Adam":{"start":"05:00 am","finish":"Close"},"Sammi":{"start":"05:00 am","finish":"2:00 pm"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [tuesday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [wednesday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"05:00 am","finish":"Close"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [thursday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [friday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [saturday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [sunday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [edited] => 0
+            [comments] => 
+        )
+
+)
+
+05:00 am
+Close
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+05:00 am
+2:00 pm
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+05:00 am
+Close
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+Array
+(
+    [0] => Array
+        (
+            [id] => 95
+            [store_id] => ca660cbc33a11517998b6039e125e1a01712e1ba
+            [date_from] => 2018-09-17
+            [monday] => {"Adam":{"start":"05:00 am","finish":"Close"},"Sammi":{"start":"05:00 am","finish":"2:00 pm"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [tuesday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [wednesday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"05:00 am","finish":"Close"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [thursday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [friday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [saturday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [sunday] => {"Adam":{"start":"startTime","finish":"finishTime"},"Sammi":{"start":"startTime","finish":"finishTime"},"Whitney":{"start":"startTime","finish":"finishTime"},"Byron":{"start":"startTime","finish":"finishTime"},"Miranda":{"start":"startTime","finish":"finishTime"},"Brayden":{"start":"startTime","finish":"finishTime"},"Tom":{"start":"startTime","finish":"finishTime"},"Leo":{"start":"startTime","finish":"finishTime"},"Brittany":{"start":"startTime","finish":"finishTime"}}
+            [edited] => 0
+            [comments] => 
+        )
+
+)
+
+05:00 am
+Close
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+05:00 am
+2:00 pm
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+05:00 am
+Close
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime
+startTime
+finishTime

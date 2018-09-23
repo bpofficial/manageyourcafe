@@ -1,0 +1,1239 @@
+Array
+(
+    [monday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [tuesday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [wednesday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [thursday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [friday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [saturday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [sunday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [startDate] => 24/9/2018
+    [comments] => 
+)
+
+2018-09-24
+Array
+(
+    [monday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [tuesday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [wednesday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [thursday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [friday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [saturday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [sunday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [startDate] => 24/9/2018
+    [comments] => 
+)
+
+2018-09-24
+Array
+(
+    [monday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [tuesday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [wednesday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [thursday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [friday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [saturday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [sunday] => Array
+        (
+            [Adam] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Sammi] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Whitney] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Byron] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Miranda] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brayden] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Tom] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Leo] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+            [Brittany] => Array
+                (
+                    [start] => startTime
+                    [finish] => finishTime
+                )
+
+        )
+
+    [startDate] => 24/9/2018
+    [comments] => 
+)
+
+2018-09-24

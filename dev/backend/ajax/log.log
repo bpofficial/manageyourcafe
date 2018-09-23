@@ -1,0 +1,74 @@
+[22-Sep-2018 21:45:18 Australia/Sydney] PHP Fatal error:  Uncaught Error: Call to a member function format() on boolean in /home/dashboar/public_html/dev/backend/php/classes.php:1401
+Stack trace:
+#0 /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php(104): page->saveData('roster', '{"monday":{"Ada...', 'ca660cbc33a1151...')
+#1 {main}
+  thrown in /home/dashboar/public_html/dev/backend/php/classes.php on line 1401
+[22-Sep-2018 21:45:52 Australia/Sydney] PHP Fatal error:  Uncaught Error: Call to a member function format() on boolean in /home/dashboar/public_html/dev/backend/php/classes.php:1401
+Stack trace:
+#0 /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php(104): page->saveData('roster', '{"monday":{"Ada...', 'ca660cbc33a1151...')
+#1 {main}
+  thrown in /home/dashboar/public_html/dev/backend/php/classes.php on line 1401
+[22-Sep-2018 21:45:53 Australia/Sydney] PHP Fatal error:  Uncaught Error: Call to a member function format() on boolean in /home/dashboar/public_html/dev/backend/php/classes.php:1401
+Stack trace:
+#0 /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php(104): page->saveData('roster', '{"monday":{"Ada...', 'ca660cbc33a1151...')
+#1 {main}
+  thrown in /home/dashboar/public_html/dev/backend/php/classes.php on line 1401
+[22-Sep-2018 21:45:53 Australia/Sydney] PHP Fatal error:  Uncaught Error: Call to a member function format() on boolean in /home/dashboar/public_html/dev/backend/php/classes.php:1401
+Stack trace:
+#0 /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php(104): page->saveData('roster', '{"monday":{"Ada...', 'ca660cbc33a1151...')
+#1 {main}
+  thrown in /home/dashboar/public_html/dev/backend/php/classes.php on line 1401
+[22-Sep-2018 21:45:53 Australia/Sydney] PHP Fatal error:  Uncaught Error: Call to a member function format() on boolean in /home/dashboar/public_html/dev/backend/php/classes.php:1401
+Stack trace:
+#0 /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php(104): page->saveData('roster', '{"monday":{"Ada...', 'ca660cbc33a1151...')
+#1 {main}
+  thrown in /home/dashboar/public_html/dev/backend/php/classes.php on line 1401
+[22-Sep-2018 21:45:53 Australia/Sydney] PHP Fatal error:  Uncaught Error: Call to a member function format() on boolean in /home/dashboar/public_html/dev/backend/php/classes.php:1401
+Stack trace:
+#0 /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php(104): page->saveData('roster', '{"monday":{"Ada...', 'ca660cbc33a1151...')
+#1 {main}
+  thrown in /home/dashboar/public_html/dev/backend/php/classes.php on line 1401
+[22-Sep-2018 21:45:53 Australia/Sydney] PHP Fatal error:  Uncaught Error: Call to a member function format() on boolean in /home/dashboar/public_html/dev/backend/php/classes.php:1401
+Stack trace:
+#0 /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php(104): page->saveData('roster', '{"monday":{"Ada...', 'ca660cbc33a1151...')
+#1 {main}
+  thrown in /home/dashboar/public_html/dev/backend/php/classes.php on line 1401
+[22-Sep-2018 21:50:35 Australia/Sydney] PHP Notice:  Undefined variable: atetime in /home/dashboar/public_html/dev/backend/php/classes.php on line 1372
+[22-Sep-2018 21:50:35 Australia/Sydney] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/dashboar/public_html/dev/backend/php/classes.php:1372
+Stack trace:
+#0 /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php(104): page->saveData('roster', '{"monday":{"Ada...', 'ca660cbc33a1151...')
+#1 {main}
+  thrown in /home/dashboar/public_html/dev/backend/php/classes.php on line 1372
+[22-Sep-2018 21:54:14 Australia/Sydney] PHP Notice:  Undefined index: priv in /home/dashboar/public_html/dev/backend/ajax/loginfunc.php on line 46
+[22-Sep-2018 21:54:14 Australia/Sydney] PHP Notice:  Undefined index: debug in /home/dashboar/public_html/dev/backend/ajax/loginfunc.php on line 49
+[22-Sep-2018 21:54:33 Australia/Sydney] PHP Notice:  Undefined index: debug in /home/dashboar/public_html/dev/backend/ajax/loginfunc.php on line 39
+[22-Sep-2018 21:54:38 Australia/Sydney] PHP Notice:  Undefined index: priv in /home/dashboar/public_html/dev/backend/ajax/loginfunc.php on line 46
+[22-Sep-2018 21:54:38 Australia/Sydney] PHP Notice:  Undefined index: debug in /home/dashboar/public_html/dev/backend/ajax/loginfunc.php on line 49
+[22-Sep-2018 22:12:07 Australia/Sydney] PHP Notice:  Undefined index: BLUR_OTHER_ROSTERS in /home/dashboar/public_html/dev/backend/php/classes.php on line 637
+[22-Sep-2018 22:12:39 Australia/Sydney] PHP Notice:  Undefined index: BLUR_OTHER_ROSTERS in /home/dashboar/public_html/dev/backend/php/classes.php on line 637
+[22-Sep-2018 22:22:24 Australia/Sydney] PHP Notice:  Undefined index: priv in /home/dashboar/public_html/dev/backend/ajax/loginfunc.php on line 46
+[22-Sep-2018 22:22:24 Australia/Sydney] PHP Notice:  Undefined index: debug in /home/dashboar/public_html/dev/backend/ajax/loginfunc.php on line 49
+[22-Sep-2018 22:22:30 Australia/Sydney] PHP Notice:  Undefined index: BLUR_OTHER_ROSTERS in /home/dashboar/public_html/dev/backend/php/classes.php on line 637
+[22-Sep-2018 22:22:42 Australia/Sydney] PHP Notice:  Undefined index: priv in /home/dashboar/public_html/dev/backend/ajax/loginfunc.php on line 46
+[22-Sep-2018 22:22:42 Australia/Sydney] PHP Notice:  Undefined index: debug in /home/dashboar/public_html/dev/backend/ajax/loginfunc.php on line 49
+[23-Sep-2018 07:56:46 Australia/Sydney] PHP Notice:  Undefined index: priv in /home/dashboar/public_html/dev/backend/ajax/loginfunc.php on line 46
+[23-Sep-2018 07:56:46 Australia/Sydney] PHP Notice:  Undefined index: debug in /home/dashboar/public_html/dev/backend/ajax/loginfunc.php on line 49
+[23-Sep-2018 07:56:50 Australia/Sydney] PHP Notice:  Undefined variable: poster in /home/dashboar/public_html/dev/backend/php/classes.php on line 414
+[23-Sep-2018 08:09:04 Australia/Sydney] PHP Notice:  Undefined variable: poster in /home/dashboar/public_html/dev/backend/php/classes.php on line 414
+[23-Sep-2018 08:10:53 Australia/Sydney] PHP Notice:  Undefined variable: poster in /home/dashboar/public_html/dev/backend/php/classes.php on line 414
+[23-Sep-2018 08:11:01 Australia/Sydney] PHP Notice:  Undefined index: message in /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php on line 41
+[23-Sep-2018 08:11:01 Australia/Sydney] PHP Notice:  Undefined index: message in /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php on line 84
+[23-Sep-2018 08:11:01 Australia/Sydney] PHP Notice:  Undefined index: message in /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php on line 100
+[23-Sep-2018 08:11:11 Australia/Sydney] PHP Notice:  Undefined index: message in /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php on line 41
+[23-Sep-2018 08:11:11 Australia/Sydney] PHP Notice:  Undefined index: message in /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php on line 84
+[23-Sep-2018 08:11:11 Australia/Sydney] PHP Notice:  Undefined index: message in /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php on line 100
+[23-Sep-2018 08:12:13 Australia/Sydney] PHP Notice:  Undefined index: message in /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php on line 41
+[23-Sep-2018 08:12:13 Australia/Sydney] PHP Notice:  Undefined index: message in /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php on line 84
+[23-Sep-2018 08:12:13 Australia/Sydney] PHP Notice:  Undefined index: message in /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php on line 100
+[23-Sep-2018 08:12:19 Australia/Sydney] PHP Notice:  Undefined index: message in /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php on line 41
+[23-Sep-2018 08:12:19 Australia/Sydney] PHP Notice:  Undefined index: message in /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php on line 84
+[23-Sep-2018 08:12:19 Australia/Sydney] PHP Notice:  Undefined index: message in /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php on line 100
+[23-Sep-2018 08:12:47 Australia/Sydney] PHP Notice:  Undefined variable: poster in /home/dashboar/public_html/dev/backend/php/classes.php on line 414
+[23-Sep-2018 08:13:26 Australia/Sydney] PHP Notice:  Undefined index: message in /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php on line 41
+[23-Sep-2018 08:13:26 Australia/Sydney] PHP Notice:  Undefined index: message in /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php on line 84
+[23-Sep-2018 08:13:26 Australia/Sydney] PHP Notice:  Undefined index: message in /home/dashboar/public_html/dev/backend/ajax/rostersfunc.php on line 100

@@ -1,0 +1,27 @@
+.notice-settings {
+    cursor: pointer;
+}
+
+.notice-settings a {
+    color: #0000009d; 
+    text-decoration: none;
+}
+
+.error-enabled {
+    z-index: 5;
+    color: red;
+    cursor: pointer;
+}
+.error-disabled {
+    z-index: 5;
+    color: #ccc;
+    cursor: none;
+    pointer-events: none;
+}
+
+span .quantity {
+    border-radius: 100px;
+    background: #ec3232;
+    color : white;
+    padding : 1px 6px; 
+}
