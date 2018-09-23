@@ -36,8 +36,8 @@ class errorHandle {
         } else {
             $this->error_text .= "";
         }
-        #endregion bla blah
-    }
+        #endregion 
+        }
     
     public function generate(bool $encode = true, bool $clear = true) {
         #region
