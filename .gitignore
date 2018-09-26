@@ -1,0 +1,4 @@
+*.log
+dev/backend/php/config.php
+main/backend/php/config.php
+config.php

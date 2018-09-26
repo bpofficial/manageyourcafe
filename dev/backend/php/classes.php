@@ -36,8 +36,8 @@ class errorHandle {
         } else {
             $this->error_text .= "";
         }
-        #endregion 
-        }
+        #endregion
+    }
     
     public function generate(bool $encode = true, bool $clear = true) {
         #region
@@ -313,7 +313,7 @@ EOT;
             }
             for ($x = 0; $x < $staffCount; $x++) {
                 $name = ucfirst($array[$x]);
-                $ROSTER_CREATOR_BODY .= "<tr><th class=\"fixed-sub\">" . $name . "</th>";
+                $ROSTER_CREATOR_BODY .= "<tr style=\"position:flex;\"><th class=\"fixed-sub\">" . $name . "</th>";
                 for ($day = 0; $day < 7; $day++) {
                     $namestart = $days[$day] . '_' . ucfirst($array[$x]) . '_start';
                     $namefinish = $days[$day] . '_' . ucfirst($array[$x]) . '_finish';
@@ -338,7 +338,7 @@ EOT;
         } else {
             for ($x = 0; $x < $staffCount; $x++) {
                 $name = ucfirst($array[$x]);
-                $ROSTER_CREATOR_BODY .= "<tr><th class=\"fixed-sub\">" . $name . "</th>";
+                $ROSTER_CREATOR_BODY .= "<tr style=\"position:flex;\"><th class=\"fixed-sub\">" . $name . "</th>";
                 for ($day = 0; $day < 7; $day++) {
                     $namestart = $days[$day] . '_' . ucfirst($array[$x]) . '_start';
                     $namefinish = $days[$day] . '_' . ucfirst($array[$x]) . '_finish';
