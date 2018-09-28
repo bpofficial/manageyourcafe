@@ -94,7 +94,7 @@ if(isset($_SESSION)) {
                     if(!result.success) {
                         document.getElementById('error').innerHTML = result.value;
                     } else {
-                        window.location = "https://manageyour.com/dashboard";
+                        window.location = "https://manageyour.cafe/dashboard";
                     }
                 }, 
                 error: function(){}
