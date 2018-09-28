@@ -40,10 +40,8 @@ if ($_REQUEST['message'] === "REQ_PAGE") {
     #endregion
 } else if ($_POST['message'] === "UPDATE_ROSTER") {
     #region
-    $roster = json_decode(stripslashes($_POST['data']), true);
-    error_log(print_r($roster,true) . PHP_EOL,3,'logloggggg.log');                                         
+    $roster = json_decode(stripslashes($_POST['data']), true);                                       
     $rdate = date('Y-m-d', strtotime(str_replace('/', '-', $roster['startDate'])));
-    error_log($rdate . PHP_EOL,3,'logloggggg.log');
     $st = $conn->prepare("SELECT `date_from` FROM `rosters` WHERE `store_id`='$store_id' ORDER BY `id` DESC LIMIT 1");
     $st->execute();
     $date_check = $st->fetchColumn();
@@ -67,14 +65,42 @@ if ($_REQUEST['message'] === "REQ_PAGE") {
         try {
             $st = $conn->prepare("INSERT INTO `rosters` (store_id, date_from, monday, tuesday, wednesday, thursday, friday, saturday, sunday, comments) VALUES ('$store_id', '$rdate', '$monday', '$tuesday', '$wednesday', '$thursday', '$friday', '$saturday', '$sunday', '$comments')");
             $st->execute();
+            try {
+                $stv = $conn->prepare("SELECT * FROM `staff` WHERE `store_id`='$store_id'");
+                $stv->execute();
+                $staff = $stv->fetchAll(PDO::FETCH_ASSOC);
+            } catch ( PDOException $e ) {
+                if($_SESSION['debug']) {
+                    $error->add_error("%cError: ". '%c' . $e->getMessage() ." %con line: " . '%c' . $e->getLine() . '%c', ['font-weight:bold;', 'color:red;', 'color:black;', 'color:blue;','color:black'], true);
+                    exit(json_encode(array('success' =>  false,'value' => 'Errors.','errors' =>  $$error->generate())));
+                } else {
+                    exit(json_encode(array('success' =>  false,'value' => '500 Server-side error.')));
+                }
+            }
             $data = new roster;
-            $html = $data->generateUser($name, $store_id, "email");
             $css = "<style> .m-b-30{margin-bottom:30px}.table{margin:0}.table-responsive{padding-right:1px}.table-responsive .table--no-card{-webkit-border-radius:10px; -moz-border-radius:10px; border-radius:10px; -webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.1); -moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.1); box-shadow:0 2px 5px 0 rgba(0,0,0,.1)}.table-earning thead th{background:#333; font-size:16px; color:#fff; vertical-align:middle; font-weight:400; text-transform:capitalize; line-height:1; padding:22px 40px; white-space:nowrap}.table-earning thead th.text-right{padding-left:15px; padding-right:65px}.table-earning tbody td{color:gray; padding:12px 40px; white-space:nowrap}.table-earning tbody td.text-right{padding-left:15px; padding-right:65px}.table-earning tbody tr:hover td{color:#555; cursor:pointer}.table-bordered{border:1px solid #dee2e6}.table-bordered td,.table-bordered th{border:1px solid #dee2e6}.table-bordered thead td,.table-bordered thead th{border-bottom-width:2px}@media(max-width:575.98px){.table-responsive-sm{display:block; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; -ms-overflow-style:-ms-autohiding-scrollbar}.table-responsive-sm>.table-bordered{border:0}}@media(max-width:767.98px){.table-responsive-md{display:block; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; -ms-overflow-style:-ms-autohiding-scrollbar}.table-responsive-md>.table-bordered{border:0}}@media(max-width:991.98px){.table-responsive-lg{display:block; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; -ms-overflow-style:-ms-autohiding-scrollbar}.table-responsive-lg>.table-bordered{border:0}}@media(max-width:1199.98px){.table-responsive-xl{display:block; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; -ms-overflow-style:-ms-autohiding-scrollbar}.table-responsive-xl>.table-bordered{border:0}}.table-responsive{display:block; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; -ms-overflow-style:-ms-autohiding-scrollbar}.table-responsive>.table-bordered{border:0} </style>";
-            $mail = json_encode(array('title' => 'Roster for week starting ' . $roster['startDate'], 'content' => base64_encode($css . $html)));
-            if(email($mail, "roster")) {
+            $send_count = $sent_count = 0;
+            foreach($staff as $key => $val) {
+                $settings = json_decode($val['settings'],true);
+                if($settings['getEmails'] === "true" || $settings['getEmails'] === true) {
+                    $send_count++;
+                    $html = $data->generateUser($val['uname'], $store_id, "email");
+                    $mail = json_encode(array('title' => 'Roster for week starting ' . $roster['startDate'], 'content' => base64_encode($css . $html)));        
+                    if(email($val['email'], $mail, "roster")) {
+                        $sent_count++;
+                    } else {
+                        continue;
+                    }
+                } else {
+                    continue;
+                }
+            }
+            if($send_count == $sent_count) {
                 echo json_encode(array('success' => true));
+            } else if ($sent_count > 0) {
+                echo json_encode(array('success' => true, 'value' => "Sent ".$sent_count." rosters."));
             } else {
-                echo exitf("Failed to email rosters", false, "POST"); 
+                echo json_encode(array('success' => false));
             }
         } catch (PDOException $e) {
             echo exitf(null, true, "POST", $e); 

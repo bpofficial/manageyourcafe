@@ -698,7 +698,7 @@ EOT;
             if($req === "all") {
                 return $ROSTER_MAIN_HEAD. $ROSTER_MAIN_BODY . $this->ROSTER_MAIN_FOOT . $USER_PREVIOUS_ROSTERS . "</div></div>"; //the 2 end-divs are for section content and container fluid :)
             } else if ($req === "email") {
-                return "<div>" . $COMMENTS . "</div><br/><div class=\"table-responsive table--no-card m-b-30\"><table id=\"roster\" class=\"table table-borderless table-striped table-earning\" style=\"border-radius:px;\" align=\"left\"> <thead align=\"left\"> <tr> <th>Name</th> <th>Monday</th> <th>Tuesday</th> <th>Wednesday</th> <th>Thursday</th> <th>Friday</th> <th>Saturday</th> <th>Sunday</th> </tr></thead> <tbody align=\"left\" style=\"cursor: default;\">" . $ROSTER_MAIN_BODY . "</tbody></table></div>";
+                return "<div>" . $COMMENTS . "</div><br/><div class=\"table-responsive table--no-card m-b-30\"><table id=\"roster\" class=\"table table-borderless table-striped table-earning\" style=\"border-radius:5px;border-collapse:collapse;\" align=\"left\"> <thead align=\"left\"> <tr> <th>Name</th> <th>Monday</th> <th>Tuesday</th> <th>Wednesday</th> <th>Thursday</th> <th>Friday</th> <th>Saturday</th> <th>Sunday</th> </tr></thead> <tbody align=\"left\" style=\"cursor: default;\">" . $ROSTER_MAIN_BODY . "</tbody></table></div>";
             }
         #endregion
         } else {
