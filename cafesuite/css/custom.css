@@ -1,0 +1,36 @@
+.notice-settings {
+    cursor: pointer;
+}
+
+.notice-settings a {
+    color: #0000009d; 
+    text-decoration: none;
+}
+
+.error-enabled {
+    z-index: 5;
+    color: red;
+    cursor: pointer;
+}
+.error-disabled {
+    z-index: 5;
+    color: #ccc;
+    cursor: none;
+    pointer-events: none;
+}
+
+.quantity {
+    position: relative;
+    display: inline-block;
+    right: -5px;
+    height: 15px;
+    width: 15px;
+    line-height: 15px;
+    text-align: center;
+    background: #ff4b5a;
+    color: #fff;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    font-size: 12px;
+}
