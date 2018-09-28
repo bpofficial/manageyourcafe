@@ -15,7 +15,7 @@ $(function() {
                 document.head.appendChild(styles);\
                 var frame = document.createElement(\"iframe\");\
                 frame.setAttribute(\"style\", \"border:0px;width:100%;height:100%;\");\
-                frame.setAttribute(\"src\", \"https://manageyour.cafe/st/dashboard\");\
+                frame.setAttribute(\"src\", \"https://manageyour.cafe/dashboard\");\
                 document.body.appendChild(frame);\
                 window.onload = function(){$('body').removeClass(); }\
             });\

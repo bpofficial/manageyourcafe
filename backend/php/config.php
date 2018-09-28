@@ -10,7 +10,7 @@
 	include_once "PHPMailer/SMTP.php";
     include_once('functions.php');
     include_once('classes.php');
-    $DIR = "dev";
+    $DIR = "release";
     $username = "dashboar_user";
     $password = '$$!DBUser!$';
     $hostname = "103.27.32.4";
