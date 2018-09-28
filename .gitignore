@@ -1,3 +1,4 @@
 *.log
 portal.html
 stress.php
+backend/php/config.php
