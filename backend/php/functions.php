@@ -133,24 +133,11 @@ function exitf(string $value, bool $errors = false, string $type = "GET", $e = n
 }
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-function email($data, $type) {
+function email($email, $data, $type) {
     #region
     global $uppername, $name, $conn, $error, $store_id;
     if($type == "roster") {
         $data = json_decode($data,true);
-        try {
-            $stv = $conn->prepare("SELECT * FROM `staff` WHERE `store_id`='$store_id'");
-            $stv->execute();
-            $staff = $stv->fetchAll(PDO::FETCH_ASSOC);
-        } catch ( PDOException $e ) {
-            if($_SESSION['debug']) {
-                $error->add_error("%cError: ". '%c' . $e->getMessage() ." %con line: " . '%c' . $e->getLine() . '%c', ['font-weight:bold;', 'color:red;', 'color:black;', 'color:blue;','color:black'], true);
-                $error->add_error("%cDetails: %c" . print_r($e), ['font-weight:bold', 'color:black;'], true);
-                exit(json_encode(array('success' =>  false,'value' => 'Errors.','errors' =>  $$error->generate())));
-            } else {
-                exit(json_encode(array('success' =>  false,'value' =>  '500 Server-side error.')));
-            }
-        }
         try {
             $mail = new PHPMailer(true);
             $mail->setFrom('mail@manageyour.cafe', $uppername);                           
@@ -160,20 +147,8 @@ function email($data, $type) {
             $mail->Username = 'mail@manageyour.cafe';      
             $mail->Password = '$$!MailPassword!$';          
             $mail->SMTPSecure = 'ssl';                        
-            $mail->Port = 465;        
-            $count = 0;
-            foreach($staff as $key => $val) {
-                $settings = json_decode($val['settings'],true);
-                if($settings['getEmails'] === "true" || $settings['getEmails'] === true) {
-                    $mail->addAddress($val['email']);
-                    $count++;
-                } else {
-                    continue;
-                }
-            }
-            if($count == 0) {
-                return true;
-            }
+            $mail->Port = 465;    
+            $mail->addAddress($email);
             $mail->isHTML(true);
             $mail->Subject = $data['title'];
             $mail->Body = base64_decode($data['content']);
@@ -181,19 +156,17 @@ function email($data, $type) {
         } catch (Exception $e) {
             if($_SESSION['debug']) {
                 $error->add_error("%cError: ". '%cMessage could not be sent. %cMailer Error: %c' . $e->getMessage() . '%c', ['font-weight:bold;', 'color:black;', 'color:red;', 'font-style:italic;','color:black'], true);
-                return false;
             } else {
                 error_log('Message could not be sent. Mailer Error: ' . $e->getMessage(), 3, $LOG);
-                return false;
             }
+            return false;
         } catch (phpmailerException $e) {
             if($_SESSION['debug']) {
                 $error->add_error("%cError: ". '%cMessage could not be sent. %cMailer Error: %c' . $e->errorMessage() . '%c', ['font-weight:bold;', 'color:black;', 'color:red;', 'font-style:italic;','color:black'], true);
-                return false;
             } else {
                 error_log('Message could not be sent. Mailer Error: ' . $e->errorMessage(), 3, $LOG);
-                return false;
             }
+            return false;
         }
         return true;
     } else {
