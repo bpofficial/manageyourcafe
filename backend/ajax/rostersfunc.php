@@ -78,7 +78,133 @@ if ($_REQUEST['message'] === "REQ_PAGE") {
                 }
             }
             $data = new roster;
-            $css = "<style> .m-b-30{margin-bottom:30px}.table{margin:0}.table-responsive{padding-right:1px}.table-responsive .table--no-card{-webkit-border-radius:10px; -moz-border-radius:10px; border-radius:10px; -webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.1); -moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.1); box-shadow:0 2px 5px 0 rgba(0,0,0,.1)}.table-earning thead th{background:#333; font-size:16px; color:#fff; vertical-align:middle; font-weight:400; text-transform:capitalize; line-height:1; padding:22px 40px; white-space:nowrap}.table-earning thead th.text-right{padding-left:15px; padding-right:65px}.table-earning tbody td{color:gray; padding:12px 40px; white-space:nowrap}.table-earning tbody td.text-right{padding-left:15px; padding-right:65px}.table-earning tbody tr:hover td{color:#555; cursor:pointer}.table-bordered{border:1px solid #dee2e6}.table-bordered td,.table-bordered th{border:1px solid #dee2e6}.table-bordered thead td,.table-bordered thead th{border-bottom-width:2px}@media(max-width:575.98px){.table-responsive-sm{display:block; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; -ms-overflow-style:-ms-autohiding-scrollbar}.table-responsive-sm>.table-bordered{border:0}}@media(max-width:767.98px){.table-responsive-md{display:block; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; -ms-overflow-style:-ms-autohiding-scrollbar}.table-responsive-md>.table-bordered{border:0}}@media(max-width:991.98px){.table-responsive-lg{display:block; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; -ms-overflow-style:-ms-autohiding-scrollbar}.table-responsive-lg>.table-bordered{border:0}}@media(max-width:1199.98px){.table-responsive-xl{display:block; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; -ms-overflow-style:-ms-autohiding-scrollbar}.table-responsive-xl>.table-bordered{border:0}}.table-responsive{display:block; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; -ms-overflow-style:-ms-autohiding-scrollbar}.table-responsive>.table-bordered{border:0} </style>";
+            $css = <<<EOT
+                <style> 
+                
+                .m-b-30{
+                    margin-bottom:30px
+                }
+                .table{
+                    margin:0
+                }
+                .table-responsive{
+                    padding-right:1px
+                }
+                .table-responsive .table--no-card{
+                    -webkit-border-radius:10px;
+                    -moz-border-radius:10px;
+                    border-radius:10px;
+                    -webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
+                    -moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
+                    box-shadow:0 2px 5px 0 rgba(0,0,0,.1)
+                }
+                .table-earning thead th{
+                    background:#333;
+                    font-size:16px;
+                    color:#fff;
+                    vertical-align:middle;
+                    font-weight:400;
+                    text-transform:capitalize;
+                    line-height:1;
+                    padding:22px 40px;
+                    white-space:nowrap
+                }
+                .table-earning thead th.text-right{
+                    padding-left:15px;
+                    padding-right:65px
+                }
+                .table-earning tbody td{
+                    color:gray;
+                    padding:12px 40px;
+                    white-space:nowrap;
+                    border-right: 2px solid #dee2e6;
+                    border-bottom: 2px solid #dee2e6;
+                }
+                .table-earning tbody td.text-right{
+                    padding-left:15px;
+                    padding-right:65px
+                }
+                .table-earning tbody tr:hover td{
+                    color:#555;
+                    cursor:pointer
+                }
+                .table-bordered{
+                    border:1px solid #dee2e6
+                }
+                .table-bordered td,.table-bordered th{
+                    border:1px solid #dee2e6
+                }
+                .table-bordered thead td,.table-bordered thead th{
+                    border-bottom-width:2px
+                }
+                @media(max-width:575.98px){
+                    .table-responsive-sm{
+                        display:block;
+                        width:100%;
+                        overflow-x:auto;
+                        -webkit-overflow-scrolling:touch;
+                        -ms-overflow-style:-ms-autohiding-scrollbar
+                    }
+                    .table-responsive-sm>.table-bordered{
+                        border:0
+                    }
+                }
+                @media(max-width:767.98px){
+                    .table-responsive-md{
+                        display:block;
+                        width:100%;
+                        overflow-x:auto;
+                        -webkit-overflow-scrolling:touch;
+                        -ms-overflow-style:-ms-autohiding-scrollbar
+                    }
+                    .table-responsive-md>.table-bordered{
+                        border:0
+                    }
+                }
+                @media(max-width:991.98px){
+                    .table-responsive-lg{
+                        display:block;
+                        width:100%;
+                        overflow-x:auto;
+                        -webkit-overflow-scrolling:touch;
+                        -ms-overflow-style:-ms-autohiding-scrollbar
+                    }
+                    .table-responsive-lg>.table-bordered{
+                        border:0
+                    }
+                }
+                @media(max-width:1199.98px){
+                    .table-responsive-xl{
+                        display:block;
+                        width:100%;
+                        overflow-x:auto;
+                        -webkit-overflow-scrolling:touch;
+                        -ms-overflow-style:-ms-autohiding-scrollbar
+                    }
+                    .table-responsive-xl>.table-bordered{
+                        border:0
+                    }
+                }
+                .table-responsive{
+                    display:block;
+                    width:100%;
+                    overflow-x:auto;
+                    -webkit-overflow-scrolling:touch;
+                    -ms-overflow-style:-ms-autohiding-scrollbar
+                }
+                .table-responsive>.table-bordered{
+                    border:0
+                }
+
+                tr.personal > td:first-child {
+                    border-left:4px solid rgba(66, 114, 215, 0.8)!important;
+                }
+                tr.personal > td {
+                    border-bottom:2px solid rgba(66, 114, 215, 0.8)!important;
+                }
+
+             </style>
+EOT;
             $send_count = $sent_count = 0;
             foreach($staff as $key => $val) {
                 $settings = json_decode($val['settings'],true);

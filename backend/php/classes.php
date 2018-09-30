@@ -268,7 +268,7 @@ EOT;
     private $ROSTER_MAIN_FOOT = "</tbody></table></div></div></div></div></div>"; //ends the ROW
     private $SELECT_TIME = "<option value=\"05:00 am\">05:00 am</option><option value=\"05:30 am\">05:30 am</option><option value=\"05:45 am\">05:45 am</option><option value=\"06:00 am\">06:00 am</option><option value=\"06:15 am\">06:15 am</option><option value=\"06:30 am\">06:30 am</option><option value=\"06:45 am\">06:45 am</option><option value=\"07:00 am\">07:00 am</option><option value=\"07:15 am\">07:15 am</option><option value=\"07:30 am\">07:30 am</option><option value=\"07:45 am\">07:45 am</option><option value=\"08:00 am\">08:00 am</option><option value=\"08:15 am\">08:15 am</option><option value=\"08:30 am\">08:30 am</option><option value=\"08:45 am\">08:45 am</option><option value=\"09:00 am\">09:00 am</option><option value=\"09:15 am\">09:15 am</option><option value=\"09:30 am\">09:30 am</option><option value=\"09:45 am\">09:45 am</option><option value=\"10:00 am\">10:00 am</option><option value=\"10:15 am\">10:15 am</option><option value=\"10:30 am\">10:30 am</option><option value=\"10:45 am\">10:45 am</option><option value=\"11:00 am\">11:00 am</option><option value=\"11:15 am\">11:15 am</option><option value=\"11:30 am\">11:30 am</option><option value=\"11:45 am\">11:45 am</option><option value=\"12:00 pm\">12:00 pm</option><option value=\"12:15 pm\">12:15 pm</option><option value=\"12:30 pm\">12:30 pm</option><option value=\"12:45 pm\">12:45 pm</option><option value=\"1:00 pm\">1:00 pm</option><option value=\"1:15 pm\">1:15 pm</option><option value=\"1:30 pm\">1:30 pm</option><option value=\"1:45 pm\">1:45 pm</option><option value=\"2:00 pm\">2:00 pm</option><option value=\"2:15 pm\">2:15 pm</option><option value=\"2:30 pm\">2:30 pm</option><option value=\"2:45 pm\">2:45 pm</option><option value=\"3:00 pm\">3:00 pm</option><option value=\"3:15 pm\">3:15 pm</option><option value=\"3:30 pm\">3:30 pm</option><option value=\"3:45 pm\">3:45 pm</option><option value=\"4:00 pm\">4:00 pm</option><option value=\"Close\">Close</option>";
     #endregion
-    
+
     public function generateCreator(string $store_id, bool $pop = false, bool $collapse = false) {
         #region
         global $conn, $error, $LOG;
@@ -338,13 +338,30 @@ EOT;
         } else {
             for ($x = 0; $x < $staffCount; $x++) {
                 $name = ucfirst($array[$x]);
-                $ROSTER_CREATOR_BODY .= "<tr style=\"position:flex;\"><th class=\"fixed-sub\">" . $name . "</th>";
+                $ROSTER_CREATOR_BODY .= <<<EOT
+                    <tr style="position:flex;">
+                        <th class="fixed-sub">
+                            $name
+                        </th>
+EOT;
                 for ($day = 0; $day < 7; $day++) {
                     $namestart = $days[$day] . '_' . ucfirst($array[$x]) . '_start';
                     $namefinish = $days[$day] . '_' . ucfirst($array[$x]) . '_finish';
-                    $ROSTER_CREATOR_BODY .= "<td id=\"" . $days[$day] . "\" name=\"" . $days[$day] . "\"><div class=\"rs-select2--trans rs-select2--md\" style=\"background-color: transparent;\"><select value=\"" . $name . "\" name=\"" . $namestart . "\" class=\"js-select2 select2-hidden-accessible\" style=\"background-color: transparent; max-width:5%;\"><option selected=\"selected\" value=\"startTime\">Start Time</option>";
-                    $ROSTER_CREATOR_BODY .= $this->SELECT_TIME . "</select><select value=\"" . $name ."\" name=\"" . $namefinish . "\" class=\"js-select2 select2-hidden-accessible\" style=\"background-color:transparent;\"><option selected=\"selected\" value=\"finishTime\">Finish Time</option>";
-                    $ROSTER_CREATOR_BODY .= $this->SELECT_TIME . "</select><span class=\"dropdown-wrapper\" style=\"background-color:transparent;\" aria-hidden=\"true\"></span></div></td>";
+                    $ROSTER_CREATOR_BODY .= <<<EOT
+                        <td id="$days[$day]" name="$days[$day]">
+                            <div class="rs-select2--trans rs-select2--md"style="background-color: transparent;">
+                                <select value="$name" name="$namestart" class="js-select2 select2-hidden-accessible"style="background-color: transparent; max-width:5%;">
+                                    <option selected="selected"value="startTime">Start Time</option>
+                                    $this->SELECT_TIME 
+                                </select>
+                                <select value="$name" name="$namefinish" class="js-select2 select2-hidden-accessible" style="background-color:transparent;">
+                                    <option selected="selected" value="finishTime">Finish Time</option>
+                                    $this->SELECT_TIME
+                                </select>
+                                <span class="dropdown-wrapper" style="background-color:transparent;" aria-hidden="true"></span>
+                            </div>
+                        </td>
+EOT;
                 }
             $ROSTER_CREATOR_BODY .= "</tr>";
             } 
@@ -618,7 +635,7 @@ EOT;
             $ROSTER_MAIN_BODY = "";
             for ($x = 0; $x < $staffCount; $x++) {
                 $name = ucfirst($array[$x]);
-                ($array[$x] == $user) ? $ROSTER_MAIN_BODY .= "<tr style=\"cursor: default;border-left:4px solid rgba(66, 114, 215, 0.8);border-bottom:2px solid rgba(66, 114, 215, 0.8);\"><td style=\"font-weight: bold; cursor: default;\">" . $name . "</td>" : $ROSTER_MAIN_BODY .= "<tr style=\"cursor: default;\"><td style=\"font-weight: bold; cursor: default;\">" . $name . "</td>";
+                ($array[$x] == $user) ? $ROSTER_MAIN_BODY .= "<tr class=\"personal\"><td style=\"font-weight: bold; cursor: default;\">" . $name . "</td>" : $ROSTER_MAIN_BODY .= "<tr><td style=\"font-weight: bold;\">" . $name . "</td>";
                 $namestart = ucfirst($array[$x]) . '_start';
                 $namefinish = ucfirst($array[$x]) . '_finish';
                 for ($day = 0; $day < 7; $day++) {
@@ -626,8 +643,8 @@ EOT;
                     $roster = json_decode($prev_roster[0][$tday], TRUE);
                     $pstime = $roster[$name]['start'];
                     $pftime = $roster[$name]['finish'];
-                    ($pstime != "startTime") ? $ROSTER_MAIN_BODY .= "<td><p style=\"cursor: default;\">" . $pstime . "</p>" : $ROSTER_MAIN_BODY .= "<td><p style=\"cursor: default;\">Not working</p>";
-                    ($pftime != "finishTime") ? $ROSTER_MAIN_BODY .= "<p style=\"cursor: default;\">" . $pftime . "</p></td>" : $ROSTER_MAIN_BODY .= "</td>";
+                    ($pstime != "startTime") ? $ROSTER_MAIN_BODY .= "<td><p>" . $pstime . "</p>" : $ROSTER_MAIN_BODY .= "<td><p>Not working</p>";
+                    ($pftime != "finishTime") ? $ROSTER_MAIN_BODY .= "<p>" . $pftime . "</p></td>" : $ROSTER_MAIN_BODY .= "</td>";
                 }
                 $ROSTER_MAIN_BODY .= "</tr>";
             }
@@ -685,10 +702,10 @@ EOT;
                         $name_start = $data[$nname]["start"]; //e.g. 
                         $name_finish = $data[$nname]["finish"];
                         if($name_start == "startTime" || $name_finish == "finishTime") {
-                            $name_start = "Not working";
-                            $name_finish = "";
+                            $body .= "<td><div>Not working</td>";
+                        } else {
+                            $body .= "<td><div>" . $name_start . "</div><div>" . $name_finish . "</div></td>";
                         }
-                        $body .= "<td><div>" . $name_start . "</div><div>" . $name_finish . "</div></td>";
                     }
                     $body .= "</tr>";
                 }
@@ -698,7 +715,46 @@ EOT;
             if($req === "all") {
                 return $ROSTER_MAIN_HEAD. $ROSTER_MAIN_BODY . $this->ROSTER_MAIN_FOOT . $USER_PREVIOUS_ROSTERS . "</div></div>"; //the 2 end-divs are for section content and container fluid :)
             } else if ($req === "email") {
-                return "<div>" . $COMMENTS . "</div><br/><div class=\"table-responsive table--no-card m-b-30\"><table id=\"roster\" class=\"table table-borderless table-striped table-earning\" style=\"border-radius:5px;border-collapse:collapse;\" align=\"left\"> <thead align=\"left\"> <tr> <th>Name</th> <th>Monday</th> <th>Tuesday</th> <th>Wednesday</th> <th>Thursday</th> <th>Friday</th> <th>Saturday</th> <th>Sunday</th> </tr></thead> <tbody align=\"left\" style=\"cursor: default;\">" . $ROSTER_MAIN_BODY . "</tbody></table></div>";
+                $header_string = "Stones Throw Cafe";
+                $padding_string = "";
+                if(strlen($header_string) < 150) {
+                    $x = 150 - strlen($header_string);
+                    for($i = 0; $i < $x; $i++) {
+                        $padding_string .= "&nbsp;&zwnj;";
+                    }
+                }
+                $return = <<<EOT
+                <div style="display: none; max-height: 0px; overflow: hidden;">
+                    $header_string
+                </div>
+                <div style="display: none; max-height: 0px; overflow: hidden;">
+                    $padding_string;
+                </div>
+                <div>
+                    $COMMENTS
+                </div>
+                <br/>
+                <div class="table-responsive table--no-card m-b-30">
+                    <table id="roster" class="table table-borderless table-striped table-earning" style="border-radius:5px;border-collapse:collapse;" align="left">
+                        <thead align="left"> 
+                            <tr> 
+                                <th>Name</th> 
+                                <th>Monday</th> 
+                                <th>Tuesday</th> 
+                                <th>Wednesday</th> 
+                                <th>Thursday</th> 
+                                <th>Friday</th> 
+                                <th>Saturday</th> 
+                                <th>Sunday</th> 
+                            </tr>
+                        </thead> 
+                        <tbody align="left" style="cursor: default;">
+                            $ROSTER_MAIN_BODY
+                        </tbody>
+                    </table>
+                </div>
+EOT;
+                return $return;
             }
         #endregion
         } else {
@@ -724,6 +780,7 @@ EOT;
         }
         #endregion
     }
+
 }
 
 class page {
@@ -936,7 +993,7 @@ class page {
             $noti = new notification("sidenav-bubble",$user,$store_id,"rosters");
             $count = $noti->count;
             $js = "$(\"#roster-noti\").text(\"".$count."\");$(\"#roster-noti\").prop(\"class\",\"quantity\")";
-            if ($check === false && $days_left < 3 && $days_left > 0) {
+            if ($check === false && $days_left < 3) {
                 try {
                     $RosterData = $roster->generateCreator($store_id, $populate) . $roster->generatePrevious($store_id, ["JS"=>$js]);
                     return base64_encode($RosterData);
@@ -1495,5 +1552,108 @@ class notification {
             $this->email($name,$store_id,$element);
         }
     }
+}
+
+class element {
+
+    public function __construct(string $store_id, string $data = "", $options = null) {
+
+    }
+
+    private function changeInput(string $data, $store_id, $options) {
+        if ( empty($options) || $options != null ) {
+            $st = $conn->prepare("SELECT `customisation` FROM `staff` WHERE `store_id`='$store_id' AND `uname`='$name'");
+            $st->execute();
+            $options = $st->fetchColumn();
+            $options = json_decode($options,true);
+            customisationReplacement($data, $store_id, $options);
+        } else {
+            $tag_string = "";
+            $data = str_replace("\">","\" >", $data);
+            foreach($options as $element => $attributes) {
+                $e = "<".$element." ";
+                $f = "<".$element.">";
+                if(strpos($data, $e) || strpos($data,$f)) {
+                    $tag_regex_array = array();
+                    $regex = '<'.$element.' (.*) >';
+                    preg_match($regex, $data, $tag_regex_array);
+                    $tag_string = " ".$tag_regex_array[1]." "; //the string that holds all the attributes in the tag selected
+                    $attribute_name_string = preg_replace('/="(.*?)"/',null,$tag_string);
+                    preg_match_all('/\s(.*?)=/',$tag_string,$tag_regex_array);
+                    $attribute_name_string = trim($attribute_name_string," ");
+                    $attribute_name_array = preg_split('/\s+/i',$attribute_name_string); //the array that holds all the names of the attributes in the tag selected
+                    $s_id = array_search("id",$attribute_name_array);
+                    if($s_id == 00 || $s_id > 0 && $s_id != null) {
+                        preg_match('/id="(.*?)"/', $tag_string, $id);
+                        $id = $id[1];
+                        $line_selection_regex = '/<'.$element.'\s*?id="'.$id.'".*?(.*?)>/';
+                        preg_match($line_selection_regex, $data, $line_of_focus);
+                        $line_of_focus = $line_of_focus[0]; //used to edit and modify to then replace in the original string
+                        $LINE_TO_REPLACE = $line_of_focus; //used for regex to find and replace with the newly created line
+                    } else if (array_search("name",$attribute_name_array)) {
+                        preg_match('/name="(.*?)"/', $tag_string, $name);
+                        $name = $name[1];
+                        $line_selection_regex = '<'.$element.'\s*?name="'.$name.'".*?(.*?)>';
+                        preg_match($line_selection_regex, $data, $line_of_focus);
+                        $line_of_focus = $line_of_focus[0]; //used to edit and modify to then replace in the original string
+                        $LINE_TO_REPLACE = $line_of_focus; //used for regex to find and replace with the newly created line
+                    }
+                    foreach($attribute_name_array as $key => $attribute_name) {
+                        if(array_key_exists($attribute_name, $attributes) && !is_array($attributes[$attribute_name])) {
+                            preg_match('/'.$attribute_name.'="(.*?)" /i', $line_of_focus, $reg);
+                            if ((strpos($reg[1], " ".$attributes[$attribute_name]." ") == false) && 
+                                (strpos($reg[1], $attributes[$attribute_name]." ") == false) && 
+                                (strpos($reg[1], " ".$attributes[$attribute_name]) == false)) {
+                                $change = $reg[1] . " " . $attributes[$attribute_name];
+                            } else {
+                                $change = $reg[1];
+                            }
+                            $inline_attribute_data = $attribute_name . "=\"" . $reg[1] . "\"";
+                            $updated_attribute_data = $attribute_name . "=\"" . $change . "\"";
+                            $line_of_focus = str_replace($inline_attribute_data, $updated_attribute_data, $line_of_focus);
+                        } else if (is_array($attributes[$attribute_name])) {
+                            $change = "";
+                            foreach($attributes[$attribute_name] as $option => $setting) {
+                                $update = $option . ":" . $setting . ";";
+                                preg_match('/'.$attribute_name.'="(.*?)" /i', $line_of_focus, $reg);
+                                if ((strpos($reg[1], " ".$update." ") == false) && 
+                                    (strpos($reg[1], $update." ") == false) && 
+                                    (strpos($reg[1], " ".$update) == false)) {
+                                    $change .= $reg[1] . " " . $update;
+                                } 
+                            }
+                            $inline_attribute_data = $attribute_name . "=\"" . $reg[1] . "\"";
+                            $updated_attribute_data = $attribute_name . "=\"" . $change . "\"";
+                            $line_of_focus = str_replace($inline_attribute_data, $updated_attribute_data, $line_of_focus);
+                        }
+                    }
+                    foreach($attributes as $a_name => $a_value) {
+                        if(!is_array($a_value)) {
+                            if(strpos($attribute_name_string,$a_name) == false) {
+                                $line_of_focus = trim($line_of_focus,">");
+                                $line_of_focus .= $a_name . "=\"" . $a_value . "\" >";
+                            }
+                        } else {
+                            if(strpos($attribute_name_string,$a_name) == false) {
+                                $update = "";
+                                foreach($a_value as $opt => $set) {
+                                    $update .= $opt . ":" . $set . ";";
+                                }
+                                $line_of_focus = trim($line_of_focus,">");
+                                $line_of_focus .= $a_name . "=\"" . $update . "\" >";
+                            }
+                        }
+                    }
+                    $data = str_replace($LINE_TO_REPLACE, $line_of_focus, $data);
+                }
+            }
+            $data = str_replace("\" >", "\">",$data);
+        }
+    }
+
+    private function minimiseInput() {
+
+    }
+
 }
 ?>
