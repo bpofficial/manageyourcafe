@@ -26,6 +26,7 @@ $settings = $settings[0];
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <script>
         var t0;
+        String.prototype.escapeSpecialChars = function() {return this.replace(/\\n/g, "\\n").replace(/\\'/g, "\\'").replace(/\\"/g, '\\"').replace(/\\&/g, "\\&").replace(/\\r/g, "\\r").replace(/\\t/g, "\\t").replace(/\\b/g, "\\b").replace(/\\f/g, "\\f");};
     </script>
     <style>
         .quantity {
@@ -272,10 +273,10 @@ $settings = $settings[0];
                     if(!result.success) {
                         console.log(result);
                     } else {
-                        if('errors' in result) {
-                            $('#error').html(window.atob(result.errors));
-                        }
                         $('#main-content').html(window.atob(result.value)); 
+                    }
+                    if("errors" in result){ 
+                        $("#error").append(window.atob(result.errors));
                     }
                 }, 
                 error: function(result) {
