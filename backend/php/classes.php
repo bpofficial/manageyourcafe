@@ -860,9 +860,7 @@ class page {
 
     private function days_until($date) {
         #region
-        $r = (isset($date)) ? floor((strtotime($date) - time())/60/60/24) : FALSE;
-        error_log($r.PHP_EOL,3,"days.log");
-        return $r;
+        return (isset($date)) ? floor((strtotime($date) - time())/60/60/24) : FALSE;
         #endregion
     }
     
