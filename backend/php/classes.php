@@ -84,7 +84,7 @@ class errorHandle {
 }
 
 class roster {
-    #region -- Private variables --
+    #region { -- Private variables --
         #region
     private $ROSTER_CREATOR = <<<EOT
     <style>
@@ -170,15 +170,15 @@ class roster {
                     </div>
                 </div>
 EOT;
-                                #endregion
-        #region
+                                #endregion }
+        #region {
     private $ROSTER_CREATOR_COLLAPSEABLE = <<<EOT
     <style>
         .fixed-sub{position: absolute; height: 81px; width: 124px; background-color: white; z-index: 5; border-right: 0px;} 
         .rs-select2--trans .select2-container--default .select2-selection--single { background-color: transparent !important; }
         #loadr span .select2-selection {border-bottom: 1px solid grey;border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
         .table-earning tbody td {padding:0.75rem!important;}
-        .card.openable {
+        .openable {
             background-image: -moz-linear-gradient(top, #007bff8a, #007bff8a);
             background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#007bff8a), to(#007bff8a));
             background-image: -webkit-linear-gradient(top, #007bff8a, #007bff8a);
@@ -194,7 +194,7 @@ EOT;
                   transition: all 0.2s linear;
         }
         
-        .card.openable:hover {
+        .openable:hover {
             background-size: 100%;
         }
         
@@ -209,8 +209,8 @@ EOT;
             </div>
             <div class="row" id="roster-creator-wrapper">
                 <div class="col-lg-12">
-                    <div class="card openable" style="margin-bottom: 10px;">
-                        <div class="card-header">   
+                    <div class="card " style="margin-bottom: 10px;">
+                        <div class="card-header openable">   
                             <div class="row">
                                 <div class="col-12">
                                     <strong class="card-title">
@@ -289,7 +289,7 @@ EOT;
                         </div>
                     </div>
 EOT;
-        #endregion
+        #endregion }
     private $ROSTER_MAIN_FOOT = "</tbody></table></div></div></div></div></div>"; //ends the ROW
     private $SELECT_TIME = "<option value=\"05:00 am\">05:00 am</option><option value=\"05:30 am\">05:30 am</option><option value=\"05:45 am\">05:45 am</option><option value=\"06:00 am\">06:00 am</option><option value=\"06:15 am\">06:15 am</option><option value=\"06:30 am\">06:30 am</option><option value=\"06:45 am\">06:45 am</option><option value=\"07:00 am\">07:00 am</option><option value=\"07:15 am\">07:15 am</option><option value=\"07:30 am\">07:30 am</option><option value=\"07:45 am\">07:45 am</option><option value=\"08:00 am\">08:00 am</option><option value=\"08:15 am\">08:15 am</option><option value=\"08:30 am\">08:30 am</option><option value=\"08:45 am\">08:45 am</option><option value=\"09:00 am\">09:00 am</option><option value=\"09:15 am\">09:15 am</option><option value=\"09:30 am\">09:30 am</option><option value=\"09:45 am\">09:45 am</option><option value=\"10:00 am\">10:00 am</option><option value=\"10:15 am\">10:15 am</option><option value=\"10:30 am\">10:30 am</option><option value=\"10:45 am\">10:45 am</option><option value=\"11:00 am\">11:00 am</option><option value=\"11:15 am\">11:15 am</option><option value=\"11:30 am\">11:30 am</option><option value=\"11:45 am\">11:45 am</option><option value=\"12:00 pm\">12:00 pm</option><option value=\"12:15 pm\">12:15 pm</option><option value=\"12:30 pm\">12:30 pm</option><option value=\"12:45 pm\">12:45 pm</option><option value=\"1:00 pm\">1:00 pm</option><option value=\"1:15 pm\">1:15 pm</option><option value=\"1:30 pm\">1:30 pm</option><option value=\"1:45 pm\">1:45 pm</option><option value=\"2:00 pm\">2:00 pm</option><option value=\"2:15 pm\">2:15 pm</option><option value=\"2:30 pm\">2:30 pm</option><option value=\"2:45 pm\">2:45 pm</option><option value=\"3:00 pm\">3:00 pm</option><option value=\"3:15 pm\">3:15 pm</option><option value=\"3:30 pm\">3:30 pm</option><option value=\"3:45 pm\">3:45 pm</option><option value=\"4:00 pm\">4:00 pm</option><option value=\"Close\">Close</option>";
     #endregion
@@ -495,7 +495,8 @@ EOT;
                             m[key]=e[n].value
                         }
                         k.startDate=document.getElementById("date-input").value;
-                        k.comments=document.getElementById("roster-comments").value;
+                        var comments = document.getElementById("roster-comments").value;
+                        k.comments = window.btoa(comments.escapeSpecialChars());
                         $.ajax({
                             type:"POST",
                             url:"backend/ajax/rostersfunc.php",
@@ -680,7 +681,7 @@ EOT;
             }
             $date = $prev_roster[0]["date_from"];
             $date = date("d/m/Y", strtotime($date));
-            isset($prev_roster[0]["comments"]) ? $COMMENTS = "<div id=\"comments\" class=\"comments\">" . $prev_roster[0]["comments"] . "</div><br/>" : $COMMENTS = "";
+            (strlen($prev_roster[0]["comments"]) > 10) ? $COMMENTS = "<div id=\"comments\" class=\"comments\">" . nl2br(base64_decode($prev_roster[0]["comments"])) . "</div><br/>" : $COMMENTS = "";
             ($options["BLUR_OTHER_ROSTERS"] === true) ? $css_head = "<style>td,th{padding:10px 15px;position:relative}table{box-shadow:inset 0 1px 0 #fff}th{background:url(https://jackrugile.com/images/misc/noise-diagonal.png),linear-gradient(#777,#444);box-shadow:inset 0 1px 0 #999;color:#fff;font-weight:700;text-shadow:0 1px 0 #000}th:after{background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.08));content:'';display:block;height:25%;left:0;margin:1px 0 0;position:absolute;top:25%;width:100%}th:first-child{box-shadow:inset 1px 1px 0 #999}th:last-child{box-shadow:inset -1px 1px 0 #999}td{transition:all .3s}td:first-child{box-shadow:inset 1px 0 0 #fff}td:last-child{box-shadow:inset -1px 0 0 #fff}tr{background:url(https://jackrugile.com/images/misc/noise-diagonal.png)}tr:nth-child(odd) td{background:url(https://jackrugile.com/images/misc/noise-diagonal.png) #f1f1f1}tr:last-of-type td{box-shadow:inset 0 -1px 0 #fff}tr:last-of-type td:first-child{box-shadow:inset 1px -1px 0 #fff}tr:last-of-type td:last-child{box-shadow:inset -1px -1px 0 #fff}tbody:hover td{color:transparent;text-shadow:0 0 3px #aaa}tbody:hover tr:hover td{color:#444;text-shadow:0 1px 0 #fff}</style>" : $css_head = "";
             $ROSTER_MAIN_HEAD = <<<EOT
             $css_head
@@ -859,7 +860,9 @@ class page {
 
     private function days_until($date) {
         #region
-        return (isset($date)) ? floor((strtotime($date) - time())/60/60/24) : FALSE;
+        $r = (isset($date)) ? floor((strtotime($date) - time())/60/60/24) : FALSE;
+        error_log($r.PHP_EOL,3,"days.log");
+        return $r;
         #endregion
     }
     
@@ -1036,11 +1039,20 @@ class page {
                     return base64_encode($error->generate());
                 }
             }
-            else if ($check === false && $days_left > 3 ) {
-                $RosterData = $roster->generateCreator($store_id, $populate) . $roster->generatePrevious($store_id, ["JS"=>$js]);
-                return base64_encode($RosterData);
+            else if ($check === false && $days_left >= 3 && $days_left < 6) {
+                try {
+                    $RosterData = $roster->generateCreator($store_id, $populate) . $roster->generatePrevious($store_id, ["JS"=>$js]);
+                    return base64_encode($RosterData);
+                } catch (Exception $e) {
+                    if($_SESSION['debug']) {
+                        $error->add_error("%cError: ". '%c' . $e->getMessage() ." %con line: " . '%c' . $e->getLine() . '%c', ['font-weight:bold;', 'color:red;', 'color:black;', 'color:blue;','color:black'], true);
+                    } else {
+                        error_log("Exception on line " . $e->getLine() . ": " . $e->getMessage() . PHP_EOL,3,$LOG);
+                    }
+                    return base64_encode($error->generate());
+                }
             }
-            else if ($check === true) {
+            else if ($check === true || $days_left > 5) {
                 if($count > 0) {
                     $count -= 1;
                 } else {
