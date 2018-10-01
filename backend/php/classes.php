@@ -85,11 +85,13 @@ class errorHandle {
 
 class roster {
     #region -- Private variables --
+        #region
     private $ROSTER_CREATOR = <<<EOT
     <style>
         .fixed-sub{position: absolute; height: 81px; width: 124px; background-color: white; z-index: 5; border-right: 0px;} 
         .rs-select2--trans .select2-container--default .select2-selection--single { background-color: transparent !important; }
         #loadr span .select2-selection {border-bottom: 1px solid grey;border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
+        .table-earning tbody td {padding:0.75rem!important;}
     </style> 
     <div class="section__content section__content--p30"> 
         <div class="container-fluid" id="content"> 
@@ -168,12 +170,34 @@ class roster {
                     </div>
                 </div>
 EOT;
-
+                                #endregion
+        #region
     private $ROSTER_CREATOR_COLLAPSEABLE = <<<EOT
     <style>
         .fixed-sub{position: absolute; height: 81px; width: 124px; background-color: white; z-index: 5; border-right: 0px;} 
         .rs-select2--trans .select2-container--default .select2-selection--single { background-color: transparent !important; }
         #loadr span .select2-selection {border-bottom: 1px solid grey;border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
+        .table-earning tbody td {padding:0.75rem!important;}
+        .card.openable {
+            background-image: -moz-linear-gradient(top, #007bff8a, #007bff8a);
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#007bff8a), to(#007bff8a));
+            background-image: -webkit-linear-gradient(top, #007bff8a, #007bff8a);
+            background-image: -o-linear-gradient(top, #007bff47, #007bff47);
+            background-image: linear-gradient(to bottom, #007bff47, #007bff47);
+            background-repeat: repeat-x;
+            background-repeat: repeat-y;
+            background-size: 0%;
+            background-position: 0 -30px;
+            -webkit-transition: all 0.2s linear;
+             -moz-transition: all 0.2s linear;
+               -o-transition: all 0.2s linear;
+                  transition: all 0.2s linear;
+        }
+        
+        .card.openable:hover {
+            background-size: 100%;
+        }
+        
     </style> 
     <div class="section__content section__content--p30">
         <div class="container-fluid" id="content">
@@ -185,12 +209,12 @@ EOT;
             </div>
             <div class="row" id="roster-creator-wrapper">
                 <div class="col-lg-12">
-                    <div class="card" style="margin-bottom: 10px;">
+                    <div class="card openable" style="margin-bottom: 10px;">
                         <div class="card-header">   
                             <div class="row">
                                 <div class="col-12">
                                     <strong class="card-title">
-                                        Create a new Roster:
+                                        Create a new Roster
                                         <span id="roster-show" name="creator" class="badge badge-primary float-right" style="cursor:pointer;margin-top:0.16rem;margin-right:1.3rem;" data-toggle="collapse" data-target="#roster-creator">Show&nbsp;<i class="fas fa-angle-down"></i></span>
                                     </strong>  
                                 </div>
@@ -265,6 +289,7 @@ EOT;
                         </div>
                     </div>
 EOT;
+        #endregion
     private $ROSTER_MAIN_FOOT = "</tbody></table></div></div></div></div></div>"; //ends the ROW
     private $SELECT_TIME = "<option value=\"05:00 am\">05:00 am</option><option value=\"05:30 am\">05:30 am</option><option value=\"05:45 am\">05:45 am</option><option value=\"06:00 am\">06:00 am</option><option value=\"06:15 am\">06:15 am</option><option value=\"06:30 am\">06:30 am</option><option value=\"06:45 am\">06:45 am</option><option value=\"07:00 am\">07:00 am</option><option value=\"07:15 am\">07:15 am</option><option value=\"07:30 am\">07:30 am</option><option value=\"07:45 am\">07:45 am</option><option value=\"08:00 am\">08:00 am</option><option value=\"08:15 am\">08:15 am</option><option value=\"08:30 am\">08:30 am</option><option value=\"08:45 am\">08:45 am</option><option value=\"09:00 am\">09:00 am</option><option value=\"09:15 am\">09:15 am</option><option value=\"09:30 am\">09:30 am</option><option value=\"09:45 am\">09:45 am</option><option value=\"10:00 am\">10:00 am</option><option value=\"10:15 am\">10:15 am</option><option value=\"10:30 am\">10:30 am</option><option value=\"10:45 am\">10:45 am</option><option value=\"11:00 am\">11:00 am</option><option value=\"11:15 am\">11:15 am</option><option value=\"11:30 am\">11:30 am</option><option value=\"11:45 am\">11:45 am</option><option value=\"12:00 pm\">12:00 pm</option><option value=\"12:15 pm\">12:15 pm</option><option value=\"12:30 pm\">12:30 pm</option><option value=\"12:45 pm\">12:45 pm</option><option value=\"1:00 pm\">1:00 pm</option><option value=\"1:15 pm\">1:15 pm</option><option value=\"1:30 pm\">1:30 pm</option><option value=\"1:45 pm\">1:45 pm</option><option value=\"2:00 pm\">2:00 pm</option><option value=\"2:15 pm\">2:15 pm</option><option value=\"2:30 pm\">2:30 pm</option><option value=\"2:45 pm\">2:45 pm</option><option value=\"3:00 pm\">3:00 pm</option><option value=\"3:15 pm\">3:15 pm</option><option value=\"3:30 pm\">3:30 pm</option><option value=\"3:45 pm\">3:45 pm</option><option value=\"4:00 pm\">4:00 pm</option><option value=\"Close\">Close</option>";
     #endregion
@@ -434,7 +459,7 @@ EOT;
                 $body .= "<tr><td>" . $nname . "</td>";
                 for ($x = 0; $x < 7; $x++) {
                     $data = json_decode($value[$days[$x]], true);
-                    $name_start = $data[$nname]["start"]; //e.g. 
+                    $name_start = $data[$nname]["start"];
                     $name_finish = $data[$nname]["finish"];
                     if($name_start == "startTime" || $name_finish == "finishTime") {
                         $name_start = "Not working";
@@ -538,6 +563,7 @@ EOT;
                                         $("#error").html(window.atob(a.errors))
                                     }
                                     var roster = JSON.parse(window.atob(a.data));
+                                    $("#roster-comments").prop("placeholder",window.atob(roster.comments));
                                     var staffCount = 0;
                                     var staff = [];
                                     for (var key in roster['monday']) {
@@ -568,7 +594,8 @@ EOT;
                         var k={}, e=$("#roster-form").serializeArray(),i=e.length,n,m;
                         for(n=0;n<i;n++){var l=e[n].name.split("_");m=k;while(l.length){key=l.shift();if(l.length){if(typeof m[key]==="undefined"){m[key]={}}m=m[key]}}m[key]=e[n].value}
                         k.startDate=document.getElementById("date-input").value;
-                        k.comments=document.getElementById("roster-comments").value;
+                        var comments = document.getElementById("roster-comments").value;
+                        k.comments = window.btoa(comments.escapeSpecialChars());
                         $.ajax({
                             type:"POST",
                             url:"backend/ajax/rostersfunc.php",
@@ -578,9 +605,6 @@ EOT;
                                 if(!a.success){
                                     console.log(a);
                                 } else {
-                                    if("errors" in a){ 
-                                        $("#error").append(window.atob(a.errors));
-                                    }
                                     if("option_data" in a) {
                                         var data = a.option_data;
                                         var newOption = new Option(data.text, data.id, false, false);
@@ -588,11 +612,17 @@ EOT;
                                         $('#load-a-roster').find("option[value=none]").remove();
                                     }
                                 }
+                                if("errors" in a){ 
+                                    $("#error").append(window.atob(a.errors));
+                                }
                             },
                             error:function(){ 
                                 
                             }
                         })
+                    });
+                    $("#roster-show").on('click',function() {
+                        $("#roster-show").closest('div').find('.openable').toggleClass('openable','open');
                     });
                 });
                 $extra_js
@@ -1422,7 +1452,7 @@ EOT;
     }
 
     public function saveData(string $type, $data, string $store_id) {
-        global $name, $conn;
+        global $name, $conn, $error;
         try {
             $datetime = new DateTime();
             $date = $datetime->format("Y-m-d H:i:sa");
