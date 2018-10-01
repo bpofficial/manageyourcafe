@@ -1,4 +1,5 @@
 <?php
+ (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
 session_start();
 include_once('backend/php/config.php');
 include_once('backend/php/session.php');
@@ -277,6 +278,9 @@ $settings = $settings[0];
                     }
                     if("errors" in result){ 
                         $("#error").append(window.atob(result.errors));
+                    }
+                    if("redirect" in result) {
+                        window.location = result.redirect;
                     }
                 }, 
                 error: function(result) {

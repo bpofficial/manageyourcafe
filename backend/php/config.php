@@ -34,4 +34,5 @@
     $loginpage_url = $domain . '/'.$DIR.'/login.php';
     $forbidden_url = $domain . '/403.php';
     $fourofour_url = $domain . '/404.php';
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
 ?>

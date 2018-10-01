@@ -1,5 +1,4 @@
 <?php
-    session_start();
     require_once 'config.php';
     if(isset($_SESSION['uname'])){
         $name = $_SESSION['uname'];

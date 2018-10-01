@@ -278,6 +278,9 @@ EOT;
                                     <div class="row">
                                         <div class="col-12">
                                             <strong class="card-title"> Comments</strong>
+                                            <span>
+                                                <!-- ></ -->
+                                            </span>
                                             <div class="form-group"> 
                                                 <textarea class="form-control" id="roster-comments" rows="4"></textarea>
                                             </div>

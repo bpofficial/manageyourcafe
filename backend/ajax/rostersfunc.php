@@ -9,9 +9,9 @@ $uppername = ucfirst($_SESSION['uname']);
 $name = $_SESSION['uname'];
 $store_id = $_SESSION['store_id'];
 #endregion
-
 if ($_REQUEST['message'] === "REQ_PAGE") {
     #region
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
     $time_pre = microtime(true);
     global $error; global $r; $rosters = new page;
     try {
@@ -235,6 +235,7 @@ EOT;
     #endregion
 } else if ($_POST['message'] === "REMOVE_ROSTER") {
     #region
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
     $id = $_POST['data'];
     $priv = $_SESSION['priv'];
     if($priv['remove_rosters'] === "true") {
@@ -251,6 +252,7 @@ EOT;
     #endregion
 } else if ($_POST['message'] === "SAVE_ROSTER") {
     #region Shows the most recent saved roster
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
     $page = new page;
     try {
         $save_data = $page->saveData("roster", $_POST['data'], $store_id);
@@ -279,6 +281,7 @@ EOT;
     #endregion
 } else if ($_REQUEST['message'] === "REQ_SAVED") {
     #region
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
     $id = $_REQUEST['data']['id'];
     try {
         $st = $conn->prepare("SELECT `data` FROM `saved` WHERE `id`='$id' AND `store_id`='$store_id'");
@@ -294,6 +297,7 @@ EOT;
     #endregion
 } else { 
     #region
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
     error_log($time." Nothing?".PHP_EOL); 
     #endregion
 }

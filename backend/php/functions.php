@@ -1,4 +1,12 @@
 <?php
+
+function session_check($variable_name, $session) {
+    if(array_key_exists($variable_name, $session)) {
+        return (empty($session[$variable_name])) ? FALSE : TRUE;
+    } else {
+        return "invalid";
+    }
+}
 function escape($value) {
     $return = '';
     for($i = 0; $i < strlen($value); ++$i) {
