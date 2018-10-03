@@ -85,13 +85,61 @@ class errorHandle {
 
 class roster {
     #region { -- Private variables --
-        #region
+    private $ROSTER_CREATOR_STYLES = <<<EOT
+    .fixed-sub{position: absolute; height: 81px; width: 124px; background-color: white; z-index: 5; border-right: 0px;} 
+    .rs-select2--trans .select2-container--default .select2-selection--single { background-color: transparent !important; }
+    #loadr span .select2-selection {border-bottom: 1px solid grey;border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
+    .table-earning tbody td {padding:0.75rem!important;}
+    @media screen and (max-width: 575px) {    
+        #load-button-wrapper--desktop {
+            display: none;
+        }
+
+        #load-button-wrapper--mobile {
+            display: flex!important;
+            min-width: 100%;
+            height: 100%;
+        }
+
+        #load-select-wrapper--desktop {
+            display: none;
+        }
+
+        #save-button-wrapper {
+            display: none;
+        }
+
+        #roster-creator-wrapper > .card-title > #date {
+            width: 100%;
+        }
+
+        #options-wrapper {
+            min-width: 100%!important;
+            margin-top: 5%;
+        }
+
+        #date-wrapper {
+            min-width:100%!important;
+        }
+
+        #date-wrapper > span {
+            min-width: 100%!important;
+        }
+
+        .form-group > .table {
+            display: none;
+        }
+    }
+    button {
+        border-radius: 0.1rem!important;
+    }
+
+    #print styles
+EOT;
+    #region
     private $ROSTER_CREATOR = <<<EOT
     <style>
-        .fixed-sub{position: absolute; height: 81px; width: 124px; background-color: white; z-index: 5; border-right: 0px;} 
-        .rs-select2--trans .select2-container--default .select2-selection--single { background-color: transparent !important; }
-        #loadr span .select2-selection {border-bottom: 1px solid grey;border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
-        .table-earning tbody td {padding:0.75rem!important;}
+        **_DATA_ROSTERCREATORSTYLES_**
     </style> 
     <div class="section__content section__content--p30"> 
         <div class="container-fluid" id="content"> 
@@ -104,30 +152,34 @@ class roster {
                 <div class="card"> 
                     <div class="card-header"> 
                         <strong class="card-title">
-                            <div class="col-6 float-right">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <span class="float-right" style="height: 20px;">
-                                            <button id="loadr-button" style="padding: 2px 8px;" class="btn btn-primary btn-xs btn-block">Load</button>
-                                        </span>
-                                        <span class="float-right" style="margin-right:10px;">
-                                            <div id="loadr" class="rs-select2--trans rs-select2--md">
-                                                <select id="load-a-roster" class="js-select2 select2-hidden-accessible" style="border: 1px solid grey;max-width:5%;">
-                                                    **_DATA_1_**
-                                                </select>
-                                                <span class="dropdown-wrapper" aria-hidden="true"></span>
-                                            </div>
-                                        </span>
-                                    </div>
-                                    <div class="col-12">
-                                        <button id="savr" class="btn btn-primary btn-xs" style="float: right; margin-top: 5px; padding: 2px 8px;">
-                                            Save
-                                        </button>
+
+                            <!-- -->
+                                <div class="col-6 float-right">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <span id="load-button-wrapper--desktop" class="float-right" style="height: 20px;">
+                                                <button id="loadr-button" style="padding: 2px 8px;" class="btn btn-primary btn-xs btn-block">Load</button>
+                                            </span>
+                                            <span id="load-select-wrapper--desktop" class="float-right" style="margin-right:10px;">
+                                                <div id="loadr" class="rs-select2--trans rs-select2--md">
+                                                    <select id="load-a-roster" class="js-select2 select2-hidden-accessible" style="border: 1px solid grey;max-width:5%;">
+                                                        **_DATA_1_**
+                                                    </select>
+                                                    <span class="dropdown-wrapper" aria-hidden="true"></span>
+                                                </div>
+                                            </span>
+                                        </div>
+                                        <div id="save-button-wrapper" class="col-12">
+                                            <button id="savr" class="btn btn-primary btn-xs" style="float: right; margin-top: 5px; padding: 2px 8px;">
+                                                Save
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            <!-- -->
+
                             Roster for week starting:
-                            <span class="input-group date" style="width: 20%;" id="date" data-target-input="nearest"> 
+                            <span class="input-group date col-xs-12  col-sm-6 col-md-4 col-lg-4" style="padding-left:0px;" id="date" data-target-input="nearest"> 
                                 <input id="date-input" type="text" placeholder="Week starting" class="form-control datetimepicker-input" data-target="#date"/> 
                                 <span class="input-group-append" data-target="#date" data-toggle="datetimepicker"> 
                                     <span class="input-group-text"><i class="fa fa-calendar"></i></span> 
@@ -170,14 +222,11 @@ class roster {
                     </div>
                 </div>
 EOT;
-                                #endregion }
+
+        #endregion }
         #region {
     private $ROSTER_CREATOR_COLLAPSEABLE = <<<EOT
     <style>
-        .fixed-sub{position: absolute; height: 81px; width: 124px; background-color: white; z-index: 5; border-right: 0px;} 
-        .rs-select2--trans .select2-container--default .select2-selection--single { background-color: transparent !important; }
-        #loadr span .select2-selection {border-bottom: 1px solid grey;border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
-        .table-earning tbody td {padding:0.75rem!important;}
         .openable {
             background-image: -moz-linear-gradient(top, #007bff8a, #007bff8a);
             background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#007bff8a), to(#007bff8a));
@@ -189,15 +238,15 @@ EOT;
             background-size: 0%;
             background-position: 0 -30px;
             -webkit-transition: all 0.2s linear;
-             -moz-transition: all 0.2s linear;
-               -o-transition: all 0.2s linear;
-                  transition: all 0.2s linear;
+            -moz-transition: all 0.2s linear;
+            -o-transition: all 0.2s linear;
+                transition: all 0.2s linear;
         }
         
         .openable:hover {
             background-size: 100%;
         }
-        
+        **_DATA_ROSTERCREATORSTYLES_**
     </style> 
     <div class="section__content section__content--p30">
         <div class="container-fluid" id="content">
@@ -223,8 +272,8 @@ EOT;
                         <div class="collapse" id="roster-creator">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-6">
-                                        <span class="input-group date" style="width: 40%;" id="date" data-target-input="nearest"> 
+                                    <div id="date-wrapper" class="col-6">
+                                        <span class="input-group date col-xs-12  col-sm-6 col-md-4 col-lg-4" style="padding-left:0px;" id="date" data-target-input="nearest"> 
                                             <input id="date-input" type="text" placeholder="Week starting" class="form-control datetimepicker-input" data-target="#date"/> 
                                             <span class="input-group-append" data-target="#date" data-toggle="datetimepicker"> 
                                                 <span class="input-group-text"><i class="fa fa-calendar"></i></span> 
@@ -232,13 +281,19 @@ EOT;
                                         </span>
                                         <script>$(function(){ $("#date").datetimepicker({format: "D/M/YYYY", daysOfWeekDisabled: [0,2,3,4,5,6]});}); </script> 
                                     </div>
-                                    <div class="col-6">
+                                    <div id="options-wrapper" class="col-6">
                                         <div class="row">
                                             <div class="col-12">
-                                                <span class="float-right" style="height: 20px;">
+                                                <span id="load-button-wrapper--mobile" style="display:none;" class="input-group"> 
+                                                    <select type="text" class="form-control"></select> 
+                                                    <span class="input-group-append"> 
+                                                        <span class="input-group-text"><i class="fas fa-download"></i></span> 
+                                                    </span>
+                                                </span>
+                                                <span id="load-button-wrapper--desktop" class="float-right" style="height: 20px;">
                                                     <button id="loadr-button" style="padding: 2px 8px;" class="btn btn-primary btn-xs btn-block">Load</button>
                                                 </span>
-                                                <span class="float-right" style="margin-right:10px;">
+                                                <span id="load-select-wrapper--desktop" class="float-right" style="margin-right:10px;">
                                                     <div id="loadr" class="rs-select2--trans rs-select2--md">
                                                         <select id="load-a-roster" class="js-select2 select2-hidden-accessible" style="border: 1px solid grey;max-width:5%;">
                                                             **_DATA_1_**
@@ -247,7 +302,7 @@ EOT;
                                                     </div>
                                                 </span>
                                             </div>
-                                            <div class="col-12">
+                                            <div id="save-button-wrapper" class="col-12">
                                                 <button id="savr" class="btn btn-primary btn-xs" style="float: right; margin-top: 5px; padding: 2px 8px;">
                                                     Save
                                                 </button>
@@ -399,7 +454,8 @@ EOT;
                     $this->ROSTER_CREATOR, 
                     array(
                         "**_DATA_1_**" => $loadr,
-                        "**_TABLE_BODY_**" => $ROSTER_CREATOR_BODY
+                        "**_TABLE_BODY_**" => $ROSTER_CREATOR_BODY,
+                        "**_DATA_ROSTERCREATORSTYLES_**" => $this->ROSTER_CREATOR_STYLES
                     )
                 );
         } else {
@@ -407,7 +463,8 @@ EOT;
                 $this->ROSTER_CREATOR_COLLAPSEABLE, 
                 array(
                     "**_DATA_1_**" => $loadr,
-                    "**_TABLE_BODY_**" => $ROSTER_CREATOR_BODY
+                    "**_TABLE_BODY_**" => $ROSTER_CREATOR_BODY,
+                    "**_DATA_ROSTERCREATORSTYLES_**" => $this->ROSTER_CREATOR_STYLES
                 )
             );
         }
@@ -736,9 +793,13 @@ EOT;
                         $name_start = $data[$nname]["start"]; //e.g. 
                         $name_finish = $data[$nname]["finish"];
                         if($name_start == "startTime" || $name_finish == "finishTime") {
-                            $body .= "<td><div>Not working</td>";
+                            $body .= "<td>Not working</td>";
                         } else {
-                            $body .= "<td><div>" . $name_start . "</div><div>" . $name_finish . "</div></td>";
+                            if($req !== "email") {
+                                $body .= "<td><div>" . $name_start . "</div><div>" . $name_finish . "</div></td>";
+                            } else {
+                                $body .= "<td><div>" . $name_start . " - " . $name_finish . "</div></td>"; 
+                            }
                         }
                     }
                     $body .= "</tr>";
