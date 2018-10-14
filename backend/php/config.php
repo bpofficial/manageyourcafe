@@ -6,19 +6,11 @@
     ini_set('log_errors', TRUE); // Error logging
     ini_set('error_log', $LOG); // Logging file
     include_once "PHPMailer/PHPMailer.php";
-	include_once "PHPMailer/Exception.php";
-	include_once "PHPMailer/SMTP.php";
+	  include_once "PHPMailer/Exception.php";
+	  include_once "PHPMailer/SMTP.php";
     require_once('functions.php');
-    $DIR = "dev";
+    $DIR = "release";
     $class_dir = '/home/dashboar/public_html/'.$DIR.'/backend/class/';
-    /*
-    $iti = new RecursiveDirectoryIterator($class_dir);
-    foreach(new RecursiveIteratorIterator($iti) as $file){
-        if(strpos($file, 'class.php') !== false) {
-            include_once($file);
-        }
-    };
-    */
     require_once($class_dir.'system/system.class.php');
     require_once($class_dir.'system/roster.system.class.php');
     require_once($class_dir.'page.class.php');
