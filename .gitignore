@@ -2,3 +2,8 @@
 portal.html
 stress.php
 backend/php/config.php
+*.test.php
+*.json
+pos/
+.vscode/
+backend/ajax/old/rostercreator

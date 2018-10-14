@@ -4,78 +4,62 @@ session_start();
 header('Content-type: text/html');
 require('../php/config.php');
 $error = new errorHandle;
-if ($_SESSION['debug']) { $error->add_error("%cServer-side info: %c", ['font-size:large;', 'color:black;'], true); }
-$uppername = ucfirst($_SESSION['uname']);
-$name = $_SESSION['uname'];
-$store_id = $_SESSION['store_id'];
+$error->add_error("%cServer-side info: %c", ['font-size:large;', 'color:black;'], true);
 #endregion
-
 if ($_REQUEST['message'] === "REQ_PAGE") {
-    #region
-    $time_pre = microtime(true);
-    global $error; global $r; $rosters = new page;
-    try {
-        $st = $conn->prepare("SELECT `roster_auto_populate` FROM `settings` WHERE `store_id`='$store_id'");
-        $st->execute();
-        $populate = $st->fetchColumn();
-    } catch (PDOException $e) {
-        exitf(null, true, "GET", $e, false);
-    }
-    try {
-        $st = $conn->prepare("SELECT * FROM `rosters` WHERE `store_id`='$store_id' ORDER BY id DESC LIMIT 1");
-        $st->execute();
-        if ($populate == 1) { $populate = true; } else { $populate = false; }
-        if ($st->rowCount() < 1 && $populate === true) { $populate = false; }
-    } catch (PDOExeption $e) {
-        exitf(null, true, "GET", $e);
-    }
-    if(isset($_REQUEST['stress']) && $_REQUEST['stress'] == "true") {
-        $time_post = microtime(true);
-        $exec_time = $time_post - $time_pre;
-        $error->add_error("%cExecution Time: %c" . $exec_time, ['font-weight:bold;','color:green;'], true);
-        exit(json_encode(array('success'=>true,'value'=>$rosters->generateRosterPage($store_id,$name,$populate),'time'=>$exec_time)));
-    } else {
-        exit(json_encode(array('success'=>true,'value'=>$rosters->generateRosterPage($store_id,$name,$populate))));
-    }
-    #endregion
+    $page = new page;
+    $page = $page->roster();
+    exit($page);
 } else if ($_POST['message'] === "UPDATE_ROSTER") {
-    #region
+    $roster = new roster;
+    $roster = $roster->add($_POST['data']);
+    echo $roster;
+    #region 
+    /*
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
     $roster = json_decode(stripslashes($_POST['data']), true);                                       
     $rdate = date('Y-m-d', strtotime(str_replace('/', '-', $roster['startDate'])));
-    $st = $conn->prepare("SELECT `date_from` FROM `rosters` WHERE `store_id`='$store_id' ORDER BY `id` DESC LIMIT 1");
+    $st = $conn->prepare("SELECT `date_from`,`edits`,`data` FROM `rosters` WHERE `store_id`='$store_id' AND `saved`='0' ORDER BY `id` DESC LIMIT 1");
     $st->execute();
-    $date_check = $st->fetchColumn();
-    $monday = json_encode($roster['monday']);
-    $tuesday = json_encode($roster['tuesday']);
-    $wednesday = json_encode($roster['wednesday']);
-    $thursday = json_encode($roster['thursday']);
-    $friday = json_encode($roster['friday']);
-    $saturday = json_encode($roster['saturday']);
-    $sunday = json_encode($roster['sunday']);
-    $comments = sanitize($roster['comments']);
+    $d = $st->fetchAll(PDO::FETCH_ASSOC);
+    $date_check = $d[0]['date_from'];
+    $edits = $d[0]['edits'];
+    $data = json_encode($roster);
     if ($rdate == $date_check) {
+        $edits = json_decode($edits,true);
+        $edits[] = array(
+            "by"=>$uppername,
+            "label" => "done",
+            "time"=>time(),
+            "prev"=>base64_encode($d[0]['data'])
+        );
+        $u_edits = json_encode($edits);
         try {
-            $st = $conn->prepare("UPDATE `rosters` SET monday='$monday', tuesday='$tuesday', wednesday='$wednesday', thursday='$thursday', friday='$friday', saturday='$saturday', sunday='$sunday', comments='$comments', edited='1' WHERE `date_from`='$rdate' AND `store_id`='$store_id'");
+            $st = $conn->prepare("UPDATE `rosters` SET data='$data', edits='$u_edits' WHERE `date_from`='$rdate' AND `store_id`='$store_id'");
             $st->execute();
         } catch (PDOException $e) {
-            echo exitf("Failed to create rosters", true, "POST", $e); 
+            $error->add_error("%cError: ". '%c' . $e->getMessage() ." %con line: " . '%c' . $e->getLine() . '%c', ['font-weight:bold;', 'color:red;', 'color:black;', 'color:blue;','color:black'], true);
+            echo (json_encode(array('success' =>  false,'value' => 'Errors.','errors' =>  $$error->generate())));
         }
         echo json_encode(array('success' => true));
     } else {
         try {
-            $st = $conn->prepare("INSERT INTO `rosters` (store_id, date_from, monday, tuesday, wednesday, thursday, friday, saturday, sunday, comments) VALUES ('$store_id', '$rdate', '$monday', '$tuesday', '$wednesday', '$thursday', '$friday', '$saturday', '$sunday', '$comments')");
+            $edits[] = array(
+                "by"=>$uppername,
+                "label"=>"done",
+                "time"=>time(),
+                "prev"=>base64_encode($d[0]['data'])
+            );
+            $u_edits = json_encode($edits);
+            $st = $conn->prepare("INSERT INTO `rosters` (store_id, date_from, data, edits) VALUES ('$store_id', '$rdate', '$data', '$u_edits')");
             $st->execute();
             try {
                 $stv = $conn->prepare("SELECT * FROM `staff` WHERE `store_id`='$store_id'");
                 $stv->execute();
                 $staff = $stv->fetchAll(PDO::FETCH_ASSOC);
             } catch ( PDOException $e ) {
-                if($_SESSION['debug']) {
-                    $error->add_error("%cError: ". '%c' . $e->getMessage() ." %con line: " . '%c' . $e->getLine() . '%c', ['font-weight:bold;', 'color:red;', 'color:black;', 'color:blue;','color:black'], true);
-                    exit(json_encode(array('success' =>  false,'value' => 'Errors.','errors' =>  $$error->generate())));
-                } else {
-                    exit(json_encode(array('success' =>  false,'value' => '500 Server-side error.')));
-                }
+                $error->add_error("%cError: ". '%c' . $e->getMessage() ." %con line: " . '%c' . $e->getLine() . '%c', ['font-weight:bold;', 'color:red;', 'color:black;', 'color:blue;','color:black'], true);
+                echo (json_encode(array('success' =>  false,'value' => 'Errors.','errors' =>  $$error->generate())));
             }
             $data = new roster;
             $css = <<<EOT
@@ -210,7 +194,7 @@ EOT;
                 $settings = json_decode($val['settings'],true);
                 if($settings['getEmails'] === "true" || $settings['getEmails'] === true) {
                     $send_count++;
-                    $html = $data->generateUser($val['uname'], $store_id, "email");
+                    $html = $data->generateUser("email");
                     $mail = json_encode(array('title' => 'Roster for week starting ' . $roster['startDate'], 'content' => base64_encode($css . $html)));        
                     if(email($val['email'], $mail, "roster")) {
                         $sent_count++;
@@ -229,12 +213,18 @@ EOT;
                 echo json_encode(array('success' => false));
             }
         } catch (PDOException $e) {
-            echo exitf(null, true, "POST", $e); 
+            $error->add_error("%cError: ". '%c' . $e->getMessage() ." %con line: " . '%c' . $e->getLine() . '%c', ['font-weight:bold;', 'color:red;', 'color:black;', 'color:blue;','color:black'], true);
+            echo json_encode(array('success'=>false,'errors'=>$error->generate()));
         }
     }
+    */
     #endregion
 } else if ($_POST['message'] === "REMOVE_ROSTER") {
+    $roster = new roster;
+    $roster = $roster->delete($_POST['data']);
+    echo $roster;
     #region
+    /*
     $id = $_POST['data'];
     $priv = $_SESSION['priv'];
     if($priv['remove_rosters'] === "true") {
@@ -243,45 +233,58 @@ EOT;
             $st->execute();
             echo json_encode(array('success'=>true));
         } catch (PDOException $e) {
-            echo exitf(null, true, "POST", $e); 
-        }
-    } else {
-        echo exitf("Nice try", true, "POST");
-    }
-    #endregion
-} else if ($_POST['message'] === "SAVE_ROSTER") {
-    #region Shows the most recent saved roster
-    $page = new page;
-    try {
-        $save_data = $page->saveData("roster", $_POST['data'], $store_id);
-        if ($save_data != null || $save_data != false) {
-            if($_SESSION['debug']) {
-                echo json_encode(array('success'=>true,'errors'=>$error->generate(), 'option_data'=>array("id"=>$save_data[0],"text"=>$uppername." ".$save_data[1])));
-            } else {
-                echo json_encode(array('success'=>true)); 
-            }
-        } else {
-            if($_SESSION['debug']) {
-                echo json_encode(array('success'=>false,'errors'=>$error->generate()));
-            } else {
-                echo json_encode(array('success'=>false)); 
-            }
-        }
-    } catch (Exception $e) {
-        if($_SESSION['debug']) {
             $error->add_error("%cError: ". '%c' . $e->getMessage() ." %con line: " . '%c' . $e->getLine() . '%c', ['font-weight:bold;', 'color:red;', 'color:black;', 'color:blue;','color:black'], true);
             echo json_encode(array('success'=>false,'errors'=>$error->generate()));
-        } else {
-            error_log("Exception on line " . $e->getLine() . ": " . $e->getMessage() . PHP_EOL,3,$LOG);
-            echo json_encode(array('success'=>false)); 
         }
+    } else {
+        echo json_encode(array('success'=>false,'errors'=>$error->generate()));
     }
+    */
+    #endregion
+} else if ($_POST['message'] === "SAVE_ROSTER") {
+    $data['data'] = $_POST['data']; $data['la'] = $_POST['la'];
+    $roster = new roster;
+    $roster = $roster->save($data);
+    echo $roster;
+    #region
+    /*
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
+    $date = date('Y-m-d', strtotime("now"));
+    $data = $_POST['data'];
+    $edits[] = array(
+        "by"=>$uppername,
+        "label"=>$_POST['la'],
+        "time"=>time(),
+        "prev"=>""
+    );
+    $edits = json_encode($edits);
+    try {
+        $st = $conn->prepare("INSERT INTO `rosters` (store_id, date_from, data, edits) VALUES ('$store_id', '$date', '$data', '$edits')");
+        $st->execute();
+        $st = $conn->prepare("SELECT `id` FROM `rosters` WHERE `store_id`='$store_id' AND `date_from`='$date' AND `saved`='1' ORDER BY `id` DESC LIMIT 1");
+        $st->execute();
+        $id = $st->fetchColumn();
+        if ($id != null) {
+            echo json_encode(array('success'=>true,'errors'=>$error->generate(), 'id'=>$id));
+        } else {
+            echo json_encode(array('success'=>false,'errors'=>$error->generate()));
+        }
+    } catch (Exception $e) {
+        $error->add_error("%cError: ". '%c' . $e->getMessage() ." %con line: " . '%c' . $e->getLine() . '%c', ['font-weight:bold;', 'color:red;', 'color:black;', 'color:blue;','color:black'], true);
+        echo json_encode(array('success'=>false,'errors'=>$error->generate()));
+    }
+    */
     #endregion
 } else if ($_REQUEST['message'] === "REQ_SAVED") {
-    #region
+    $roster = new roster;
+    $roster = $roster->load($_REQUEST['data']['id']);
+    exit($roster);
+    #region 
+    /*
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
     $id = $_REQUEST['data']['id'];
     try {
-        $st = $conn->prepare("SELECT `data` FROM `saved` WHERE `id`='$id' AND `store_id`='$store_id'");
+        $st = $conn->prepare("SELECT `data` FROM `rosters` WHERE `id`='$id' AND `store_id`='$store_id'");
         $st->execute();
         if($st->rowCount() < 1) {
             exit(json_encode(array('success'=>false)));
@@ -291,9 +294,45 @@ EOT;
     } catch (PDOException $e) {
         echo exitf(null, true, "POST", $e); 
     }
+    */
+    #endregion
+} else if ($_REQUEST['message'] === "LIST_SAVED") {
+    $roster = new roster;
+    $roster = $roster->list();
+    exit($roster);
+    #region
+    /*
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
+    try {
+        $st = $conn->prepare("SELECT `id`,`data`,`date_from`,`edits` FROM `rosters` WHERE `store_id`='$store_id'");
+        $st->execute();
+        $rosters = $st->fetchAll(PDO::FETCH_ASSOC);
+        $ext = array();
+        foreach($rosters as $key => $val) {
+            $e = json_decode($val['edits'],true);
+            $ext[] = array(
+                "id" => $val['id'] ?? null,
+                "label" => $e[0]['label'],
+                "poster" => $e[0]['by'],
+                "date" => date('d/m/Y g:ia', $e[0]['time']),
+                "md" => (roster::calculate($_SESSION['store_id'], $val['data'])) ?? null
+            );
+        }
+        $ext = json_encode($ext);
+        if($st->rowCount() > 0) {
+            exit(json_encode(array('success'=>true,'value'=>$ext,'errors'=>$error->generate())));
+        } else {
+            exit(json_encode(array('success'=>false,'value'=>$ext,'errors'=>$error->generate())));
+        }
+    } catch (PDOException $e) {
+        $error->add_error("%cError: ". '%c' . $e->getMessage() ." %con line: " . '%c' . $e->getLine() . '%c', ['font-weight:bold;', 'color:red;', 'color:black;', 'color:blue;','color:black'], true);
+        exit(json_encode(array('success' =>  false,'value' => 'Errors.','errors' =>  $$error->generate())));
+    }
+    */
     #endregion
 } else { 
     #region
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
     error_log($time." Nothing?".PHP_EOL); 
     #endregion
 }

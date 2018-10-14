@@ -43,6 +43,8 @@ if($_POST['message'] == 'LOGIN_REQ') {
                     echo json_encode(array('success' => false, 'value' => 'Username or password is incorrect.'));
                 }
             } else if (isset($userhash) && isset($correcthash) && ($userhash == $correcthash) && $userhash != "" && $correcthash != ""){
+                /*$tk = new token($user_data['uname'], $user_data['store_id'], $salt);
+                $_SESSION['nT'] = $tk->receipt(); $tk = null;*/
                 $_SESSION['pr'] = $user_data['priv'];
                 $_SESSION['uname'] = $user_data['uname'];
                 $_SESSION['email'] = $user_data['email'];

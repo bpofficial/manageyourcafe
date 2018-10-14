@@ -1,4 +1,12 @@
 <?php
+
+function session_check($variable_name, $session) {
+    if(array_key_exists($variable_name, $session)) {
+        return (empty($session[$variable_name])) ? FALSE : TRUE;
+    } else {
+        return "invalid";
+    }
+}
 function escape($value) {
     $return = '';
     for($i = 0; $i < strlen($value); ++$i) {
@@ -19,118 +27,6 @@ function sanitize($data) {
     return $data;
 }
 
-function exitf(string $value, bool $errors = false, string $type = "GET", $e = null, bool $stress = false, $time = null) {
-    global $error;
-    if ($type === "GET") {
-        #region
-        if ($errors) {
-            if ($_SESSION['debug']) {
-                try {
-                    if($e != null) {
-                        $error->add_error("%cError: ". '%c' . $e.getMessage() ." %con line: " . '%c' . $e.getLine() . '%c', ['font-weight:bold;', 'color:red;', 'color:black;', 'color:blue;','color:black'], true);
-                    }
-                    if (!$stress) {
-                        exit(json_encode(array('success' => false,'value' => $value,'errors' => $error->generate())));
-                    } else {
-                        exit(json_encode(array('success' => false,'value' => $value,'errors' => $error->generate(), 'time' => $time)));
-                    }
-                } catch (Exception $ex) {
-                    exit(json_encode(array('success' => false,'value' => '...')));
-                }
-            } else {
-                try {
-                    if($e != null) {
-                        error_log("Exception on line " . $e->getLine() . ": " . $e->getMessage() . PHP_EOL,3,$LOG);
-                    }
-                    if (!$stress) {
-                        exit(json_encode(array('success' => false,'value' => $value)));
-                    } else {
-                        exit(json_encode(array('success' => false,'value' => $value, 'time' => $time)));
-                    }
-                } catch (Exception $ex) {
-                    exit(json_encode(array('success' => false,'value' => '...')));
-                }
-            }
-        } else {
-            if ($_SESSION['debug']) {
-                try {
-                    if (!$stress) {
-                        exit(json_encode(array('success' => true,'value' => $value,'errors' => $error->generate())));
-                    } else {
-                        exit(json_encode(array('success' => true,'value' => $value,'errors' => $error->generate(), 'time' => $time)));
-                    }
-                } catch (Exception $ex) {
-                    exit(json_encode(array('success' => false,'value' => '...')));
-                }
-            } else {
-                try {
-                    if (!$stress) {
-                        exit(json_encode(array('success' => true,'value' => $value)));
-                    } else {
-                        exit(json_encode(array('success' => true,'value' => $value, 'time' => $time)));
-                    }
-                } catch (Exception $ex) {
-                    exit(json_encode(array('success' => false,'value' => '...')));
-                }
-            }
-        }
-        #endregion
-    } else if ($type === "POST") {
-        #region
-        if ($errors) {
-            if ($_SESSION['debug']) {
-                try {
-                    if($e != null) {
-                        $error->add_error("%cError: ". '%c' . $e.getMessage() ." %con line: " . '%c' . $e.getLine() . '%c', ['font-weight:bold;', 'color:red;', 'color:black;', 'color:blue;','color:black'], true);
-                    }
-                    if (!$stress) {
-                        return json_encode(array('success' => false,'value' => $value,'errors' => $error->generate()));
-                    } else {
-                        return json_encode(array('success' => false,'value' => $value,'errors' => $error->generate(), 'time' => $time));
-                    }
-                } catch (Exception $ex) {
-                    return json_encode(array('success' => false,'value' => '...'));
-                }
-            } else {
-                try {
-                    if($e != null) {
-                        error_log("Exception on line " . $e->getLine() . ": " . $e->getMessage() . PHP_EOL,3,$LOG);
-                    }
-                    if (!$stress) {
-                        return json_encode(array('success' => false,'value' => $value));
-                    } else {
-                        return json_encode(array('success' => false,'value' => $value, 'time' => $time));
-                    }
-                } catch (Exception $ex) {
-                    return json_encode(array('success' => false,'value' => '...'));
-                }
-            }
-        } else {
-            if ($_SESSION['debug']) {
-                try {
-                    if (!$stress) {
-                        return json_encode(array('success' => true,'value' => $value,'errors' => $error->generate()));
-                    } else {
-                        return json_encode(array('success' => true,'value' => $value,'errors' => $error->generate(), 'time' => $time));
-                    }
-                } catch (Exception $ex) {
-                    return json_encode(array('success' => true,'value' => '...'));
-                }
-            } else {
-                try {
-                    if (!$stress) {
-                        return json_encode(array('success' => true,'value' => $value));
-                    } else {
-                        return json_encode(array('success' => true,'value' => $value, 'time' => $time));
-                    }
-                } catch (Exception $ex) {
-                    return json_encode(array('success' => false,'value' => '...'));
-                }
-            }
-        }
-        #endregion
-    }
-}
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 function email($email, $data, $type) {

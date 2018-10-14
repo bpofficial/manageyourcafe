@@ -3,6 +3,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 session_start();
 include('../php/config.php');
 if($_POST['message'] == "REQ_PAGE") {
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
     $name = $_SESSION['name'];
     $sql = "SELECT email, rights FROM `staff` WHERE `uname`='$name'";
     $stmt = $conn->prepare($sql);

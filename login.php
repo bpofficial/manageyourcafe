@@ -2,7 +2,7 @@
 include_once('backend/php/config.php');
 session_start();
 if(isset($_SESSION)) {
-    session_destroy();
+	session_destroy();
 }
 ?>
 <!DOCTYPE html>

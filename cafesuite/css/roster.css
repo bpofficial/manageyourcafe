@@ -1,0 +1,101 @@
+.fixed-sub{ 
+    border-right: 0px;
+}
+span[title="Start Time"], span[title="Finish Time"] {
+    color: #00000059 !important;
+}
+.rs-select2--trans .select2-container--default .select2-selection--single { 
+    background-color: transparent !important; 
+}
+.table-earning tbody td {
+    padding:0.75rem!important;
+}
+span.r-opt-wrapper {
+    padding: 0px;
+    height: 30px;
+    margin: 2.5px;
+    text-align: center;
+    width: 6rem;
+}
+button.r-opt {
+    padding: 2px 8px;
+}
+span.roster-options-display--desktop {
+    float: right!important;
+    margin-left: auto;
+}
+button {
+    border-radius: 0.1rem!important;
+}
+/*
+    #region media queries { 
+*/
+@media screen and (max-width: 575px) {    
+    #load-button-wrapper--desktop {
+        display: none;
+    }
+
+    #load-button-wrapper--mobile {
+        display: flex!important;
+        min-width: 100%;
+        height: 100%;
+    }
+
+    #load-select-wrapper--desktop {
+        display: none;
+    }
+
+    #save-button-wrapper {
+        display: none;
+    }
+
+    #roster-creator-wrapper > .card-title > #date {
+        width: 100%;
+    }
+
+    #options-wrapper {
+        min-width: 100%!important;
+        margin-top: 5%;
+    }
+
+    #date-wrapper {
+        min-width:100%!important;
+    }
+
+    #date-wrapper > span {
+        min-width: 100%!important;
+    }
+
+    .form-group > .table {
+        display: none;
+    }
+}
+@media print {
+    @page {size: landscape}
+    .page-wrapper {
+        display: none;
+    }
+    #print-preview {
+        -webkit-print-color-adjust:exact;
+        display: block!important;
+        background-color: white;
+    }
+    #print-preview table {
+        table-layout: fixed;
+    }
+    #print-preview table thead th {
+        -webkit-print-color-adjust:exact;
+        background-color:white!important;
+        font-size: 16px;
+        color: black!important;
+        vertical-align: middle;
+        font-weight: 400;
+        text-transform: capitalize;
+        line-height: 1;
+        padding: 22px 40px;
+        white-space: nowrap;
+    }
+    #print-preview .fixed-sub {
+        position: static;
+    }
+}

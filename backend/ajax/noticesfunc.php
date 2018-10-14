@@ -11,6 +11,7 @@ header('Content-type: text/html');
 #endregion 
 if($_REQUEST['message'] == "REQ_PAGE") {
     #region
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
     $notice = new page;
     $html = $notice->generateNoticePage($store_id, $name);
     if($_SESSION['debug']) {
@@ -31,6 +32,7 @@ if($_REQUEST['message'] == "REQ_PAGE") {
     #endregion
 } else if ($_POST['message'] == "NOTICE_POST") {
     #region
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
     $notice = base64_decode($_POST['data']);
     $datetime = date("Y-m-d H:i:s");
     $user_can_post = $_SESSION['priv']['post'];
@@ -70,6 +72,7 @@ if($_REQUEST['message'] == "REQ_PAGE") {
     #endregion
 } else if ($_POST['message'] == "NTC_RM") {
     #region
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
     $id = $_POST['value'];
     try {
         $st = $conn->prepare("DELETE FROM `notices` WHERE `id`='$id' AND `store_id`='$store_id'");
@@ -87,6 +90,7 @@ if($_REQUEST['message'] == "REQ_PAGE") {
     #endregion
 } else {
     #region
+    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
     if($_SESSION['debug']) {
         exit(json_encode(array('success' => false,'errors' => $error->generate())));
     } else {
