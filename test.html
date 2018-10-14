@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Test</title>
+    <style type="text/css">
+ 
+    /* TABLE WRAPPER */
+ 
+      div.scrollTable
+      {
+           
+        border: 1px solid black;
+        overflow: hidden;
+                   
+        *overflow : auto;
+ 
+      }
+ 
+    /* TABLE */
+ 
+      div.scrollTable table{
+        border-collapse: collapse;
+      }
+ 
+    /* TABLE HEADER */
+ 
+      div.scrollTable thead tr
+      {
+        display: block;
+         
+        *display: inherit;
+        *position: relative;
+      }
+ 
+      div.scrollTable thead th{
+        border: 1px solid #AAA;
+        border-bottom: 1px solid #333;
+        background-color: #CCC;
+      }
+ 
+      div.scrollTable thead th a,
+      div.scrollTable thead th a:link,
+      div.scrollTable thead th a:visited{
+        display: block;
+        padding: 4px;
+        color: #000;
+      }
+ 
+      div.scrollTable thead a:hover{
+        background-color: #EEE;
+        color: #00A;
+      }
+       
+    /* TABLE TBODY */
+     
+     
+      div.scrollTable tbody
+      {
+        display: block;
+        overflow: auto;
+        height: 290px;
+        width: 100%;
+ 
+        *display: inherit;
+        *overflow: visible;
+        *height: auto;
+               
+      }
+ 
+      div.scrollTable tbody td{
+        padding: 3px;
+        border-top: 1px solid #333;  
+        border-left: 1px solid #333;
+        border-right: 1px solid #333;
+        border-left: 0px;
+        background: #FFF;
+      }
+ 
+    /* TABLE HEADER AND BODY CELLS */
+     
+      div.scrollTable thead th,
+      div.scrollTable tbody td{
+        width: 121px;
+      }
+ 
+      div.scrollTable thead th + th + th + th{
+        width: 138px;
+      }
+ 
+      div.scrollTable tbody td + td + td + td{
+        width: 120px;
+      }
+           
+    </style>
+  </head>
+  <body>
+    <div class="scrollTable">
+      <table>
+ 
+        <thead>
+          <tr>
+            <th><a href="#" title="">Header 1</a></th>
+            <th><a href="#" title="">Header 2</a></th>
+            <th><a href="#" title="">Header 3</a></th>
+            <th><a href="#" title="">Header 4</a></th>
+          </tr>
+ 
+        </thead>
+        <tbody>
+          <tr>
+            <td>Row 0 Column 1</td>
+            <td>Row 0 Column 2</td>
+            <td>Row 0 Column 3</td>
+            <td>Row 0 Column 4</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+ 
+          </tr>
+          <tr>
+            <td>Row 1 Column 1</td>
+            <td>Row 1 Column 2</td>
+            <td>Row 1 Column 3</td>
+            <td>Row 1 Column 4</td>
+          </tr>
+ 
+          <tr>
+            <td>Row 2 Column 1</td>
+            <td>Row 2 Column 2</td>
+            <td>Row 2 Column 3</td>
+            <td>Row 2 Column 4</td>
+          </tr>
+          <tr>
+ 
+            <td>Row 3 Column 1</td>
+            <td>Row 3 Column 2</td>
+            <td>Row 3 Column 3</td>
+            <td>Row 3 Column 4</td>
+          </tr>
+          <tr>
+            <td>Row 4 Column 1</td>
+ 
+            <td>Row 4 Column 2</td>
+            <td>Row 4 Column 3</td>
+            <td>Row 4 Column 4</td>
+          </tr>
+          <tr>
+            <td>Row 5 Column 1</td>
+            <td>Row 5 Column 2</td>
+ 
+            <td>Row 5 Column 3</td>
+            <td>Row 5 Column 4</td>
+          </tr>
+          <tr>
+            <td>Row 6 Column 1</td>
+            <td>Row 6 Column 2</td>
+            <td>Row 6 Column 3</td>
+ 
+            <td>Row 6 Column 4</td>
+          </tr>
+          <tr>
+            <td>Row 7 Column 1</td>
+            <td>Row 7 Column 2</td>
+            <td>Row 7 Column 3</td>
+            <td>Row 7 Column 4</td>
+ 
+          </tr>
+          <tr>
+            <td>Row 8 Column 1</td>
+            <td>Row 8 Column 2</td>
+            <td>Row 8 Column 3</td>
+            <td>Row 8 Column 4</td>
+          </tr>
+ 
+          <tr>
+            <td>Row 9 Column 1</td>
+            <td>Row 9 Column 2</td>
+            <td>Row 9 Column 3</td>
+            <td>Row 9 Column 4</td>
+          </tr>
+          <tr>
+ 
+            <td>Row 10 Column 1</td>
+            <td>Row 10 Column 2</td>
+            <td>Row 10 Column 3</td>
+            <td>Row 10 Column 4</td>
+          </tr>
+          <tr>
+            <td>Row 11 Column 1</td>
+ 
+            <td>Row 11 Column 2</td>
+            <td>Row 11 Column 3</td>
+            <td>Row 11 Column 4</td>
+          </tr>
+          <tr>
+            <td>Row 12 Column 1</td>
+            <td>Row 12 Column 2</td>
+ 
+            <td>Row 12 Column 3</td>
+            <td>Row 12 Column 4</td>
+          </tr>
+          <tr>
+            <td>Row 13 Column 1</td>
+            <td>Row 13 Column 2</td>
+            <td>Row 13 Column 3</td>
+ 
+            <td>Row 13 Column 4</td>
+          </tr>
+          <tr>
+            <td>Row 14 Column 1</td>
+            <td>Row 14 Column 2</td>
+            <td>Row 14 Column 3</td>
+            <td>Row 14 Column 4</td>
+ 
+          </tr>
+          <tr>
+            <td>Row 15 Column 1</td>
+            <td>Row 15 Column 2</td>
+            <td>Row 15 Column 3</td>
+            <td>Row 15 Column 4</td>
+          </tr>
+ 
+          <tr>
+            <td>Row 16 Column 1</td>
+            <td>Row 16 Column 2</td>
+            <td>Row 16 Column 3</td>
+            <td>Row 16 Column 4</td>
+          </tr>
+          <tr>
+ 
+            <td>Row 17 Column 1</td>
+            <td>Row 17 Column 2</td>
+            <td>Row 17 Column 3</td>
+            <td>Row 17 Column 4</td>
+          </tr>
+          <tr>
+            <td>Row 18 Column 1</td>
+ 
+            <td>Row 18 Column 2</td>
+            <td>Row 18 Column 3</td>
+            <td>Row 18 Column 4</td>
+          </tr>
+          <tr>
+            <td>Row 19 Column 1</td>
+            <td>Row 19 Column 2</td>
+ 
+            <td>Row 19 Column 3</td>
+            <td>Row 19 Column 4</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+ 
+  </body>
+ 
+</html>

@@ -22,6 +22,7 @@ $settings = $settings[0];
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet">
     <link href="cafesuite/css/master.css" rel="stylesheet" media="all">
     <link href="cafesuite/css/custom.css" rel="stylesheet" media="all">
+    <link href="cafesuite/css/roster.css" rel="stylesheet" media="all">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.4.0/css/perfect-scrollbar.min.css" rel="stylesheet" media="all">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet" media="all">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
@@ -45,9 +46,24 @@ $settings = $settings[0];
             border-radius: 100%;
             font-size: 12px;
         }
+        .spinner {
+            display:    block;
+            position:   relative;
+            height:     100%;
+            width:      100%;
+            background: rgba(229, 229, 229, 1) 
+                        url('https://manageyour.cafe/dev/cafesuite/images/load.gif')  
+                        no-repeat
+                        center;
+        }
+        .loading {
+            overflow: hidden;   
+        }
     </style>
 </head>
 <body class="page" style="background-color:#e5e5e5;">
+    <div id="print-preview" style="display:none;"></div>
+    </div>
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-md-none">
@@ -183,15 +199,13 @@ $settings = $settings[0];
                 </nav>
             </div>
         </aside>
-        <div class="page-container">
+        <div class="page-container" style="top:0px!important;">
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        <div class="header-wrap" style="float: right; text-align: left;">
+                        <div class="header-wrap" style="float:right; text-align: left;">
                             <div class="header-button">
-                                <div class="noti-wrap">
-                                </div>
-                                <div class="account-wrap">
+                                <div class="account-wrap" style="float:right;">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
                                             <img src="cafesuite/images/icon/avatar-01.jpg" alt="user" />
@@ -235,25 +249,60 @@ $settings = $settings[0];
                     </div>
                 </div>
             </header>
-            <div id="main-content" class="main-content"></div>
+            <div id="spinner"></div>
+            <div id="main-content" class="main-content">
+            </div>
             <div id="error"></div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="cafesuite/js/header.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/en-au.js"></script>
     <script type="text/javascript" src="cafesuite/js/popper.min.js"></script>
     <script type="text/javascript" src="cafesuite/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.4.0/perfect-scrollbar.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script type="text/javascript" src="cafesuite/js/master.js"></script>
     <script type="text/javascript" src="cafesuite/js/custom.js"></script>
-    <script>
-        function update(dash, mes) {
+    <script type="text/javascript" src="cafesuite/js/table-fixer.jquery.js"></script>
+    <script type="text/javascript">
+        function spin(on) {
+            if(on) {
+                $("#spinner").addClass("loading spinner main-content");
+                $("#main-content").attr("style","display:none;");
+            } else {
+                setTimeout(function(){
+                    $("#spinner").removeClass("loading spinner main-content");
+                    $("#main-content").attr("style","display:block;");
+                }, 2000);
+            }
+        }
+        $(document).ajaxStart(function() {
             t0 = performance.now();
+        });
+        $(document).ajaxComplete(function( event, xhr, settings ) {
+            var result = xhr.responseText;
+            if(result != '') {
+                result = JSON.parse(result);
+                if("errors" in result){ 
+                    $("#error").append(window.atob(result.errors));
+                }
+                if("redirect" in result) {
+                    window.location = result.redirect;
+                }
+                if("time" in result) {
+                    console.log('Backend e-time: '+result.time);
+                }
+                if(result.success) {
+                    spin(false);
+                }
+            }
+        });
+        function update(dash, mes) {
+            spin(true);
             if (mes != null) {
                 mes = mes;
             } else {
@@ -270,17 +319,11 @@ $settings = $settings[0];
                 success: function(result) {
                     if(result != '') {
                         result = JSON.parse(result);
-                    }
-                    if(!result.success) {
-                        console.log(result);
-                    } else {
-                        $('#main-content').html(window.atob(result.value)); 
-                    }
-                    if("errors" in result){ 
-                        $("#error").append(window.atob(result.errors));
-                    }
-                    if("redirect" in result) {
-                        window.location = result.redirect;
+                        if(!result.success) {
+                            console.log(result);
+                        } else {
+                            $('#main-content').html(window.atob(result.value)); 
+                        }
                     }
                 }, 
                 error: function(result) {
