@@ -229,7 +229,7 @@ class roster {
                         var ext = prop['md'];
                         var ext_data = ``;
                         for (var x in ext) {
-                            if(x == "cost" || x == "hours") {continue;}
+                            if(x == "cost" || x == "hours" || x == "super") {continue;}
                             var user = ext[x];
                             var name = x.charAt(0).toUpperCase() + x.slice(1);
                             ext_data += `

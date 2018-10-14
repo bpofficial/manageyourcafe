@@ -21,6 +21,7 @@
     */
     require_once($class_dir.'system/system.class.php');
     require_once($class_dir.'system/roster.system.class.php');
+    require_once($class_dir.'system/calendar.system.class.php');
     require_once($class_dir.'page.class.php');
     require_once($class_dir.'error.class.php');
     require_once($class_dir.'notification.class.php');

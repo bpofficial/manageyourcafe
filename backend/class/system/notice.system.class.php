@@ -1,7 +1,5 @@
 <?php
 class notice extends system {
-
-
     public function __construct($session) {
         system::__construct($session);
     }
