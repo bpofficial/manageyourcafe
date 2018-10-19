@@ -2,6 +2,8 @@
 class roster extends system {
     #region -- Instantiation --
     public function __construct() {
+        global $error;
+        $error->add_error("%cServer-side info: _Rosters System_%c", ['font-size:large;', 'color:black;'], true);
         system::__construct($_SESSION);
     }
 
@@ -77,10 +79,10 @@ class roster extends system {
                     $success = false;
                 }
             }
-            else if ($check === false && $days_left >= 3 && $days_left < 6) {
+            else if ($check === false && $days_left >= 3 && $days_left <= 7) {
                 $error->add_error("Roster needs completing. ".$days_left." days remaining.");
                 try {
-                    $RosterData = $this->generateCreator($populate) . $this->generatePrevious(["JS"=>$js]);
+                    $RosterData = $this->generateCreator($populate,true) . $this->generatePrevious(["JS"=>$js]);
                     $ret = base64_encode($RosterData);
                     (!$success) ?? $success = true; 
                 } catch (Exception $e) {
@@ -443,8 +445,8 @@ HTML;
             }
         $ROSTER_CREATOR_BODY .= "</tr>";
         } 
+        $error->add_error("\t<--- (FINISH) BUILDING ROSTER CREATOR --->");
         if(!$collapse) {
-            $error->add_error("\t<--- (FINISH) BUILDING ROSTER CREATOR --->");
             return strtr(
                     $this->ROSTER_CREATOR, 
                     array(
@@ -452,7 +454,6 @@ HTML;
                     )
                 );
         } else {
-            $error->add_error("\t<--- (FINISH) BUILDING ROSTER CREATOR --->");
             return strtr(
                 $this->ROSTER_CREATOR_COLLAPSEABLE, 
                 array(
@@ -804,7 +805,7 @@ HTML;
         global $error, $conn;
         $time = microtime(true);
         $success = true;
-        $date = date('Y-m-d', strtotime("now"));
+        $date = date('Y-m-d', strtotime("now Australia/Brisbane"));
         $edits[] = array(
             "by" => ucfirst($this->user),
             "label" => $data['la'],
@@ -947,17 +948,23 @@ HTML;
             $success = false;
         }
         $date_check = $d[0]['date_from'];
-        $edits = $d[0]['edits'];
+        $edits = (gettype($d[0]['edits']) != "string") ? $d[0]['edits'] : "{}";
         $data = json_encode($roster);
         if ($rdate == $date_check) {
-            $edits = json_decode($edits,true);
-            $edits[] = array(
-                "by" => ucfirst($this->user),
-                "label" => "done",
-                "time" => time(),
-                "prev" => base64_encode($d[0]['data'])
-            );
-            $u_edits = json_encode($edits);
+            try {
+                $edits = (json_decode($edits,true)) ?? (function(){throw new Exception("Couldn't decode edits.");})();
+                $edits[] = array(
+                    "by" => ucfirst($this->user),
+                    "label" => "done",
+                    "time" => time(),
+                    "prev" => base64_encode($d[0]['data'])
+                );
+                $u_edits = json_encode($edits);
+                (!$success) ?? $success = true;
+            } catch (Exception $e) {
+                $error->add_error("%cError: ". '%c' . $e->getMessage() ." %con line: " . '%c' . $e->getLine() . '%c', ['font-weight:bold;', 'color:red;', 'color:black;', 'color:blue;','color:black'], true);
+                $success = false;
+            }
             try {
                 $st = $conn->prepare("UPDATE `rosters` SET data='$data', edits='$u_edits' WHERE `date_from`='$rdate' AND `store_id`='$this->store_id' AND `saved`='0'");
                 $st->execute();
@@ -969,10 +976,10 @@ HTML;
         } else {
             try {
                 $edits[] = array(
-                    "by"=>ucfirst($this->user),
-                    "label"=>"done",
-                    "time"=>time(),
-                    "prev"=>base64_encode($d[0]['data'])
+                    "by" => ucfirst($this->user) or "Unknown",
+                    "label" => "done",
+                    "time" => time(),
+                    "prev" => base64_encode($d[0]['data']) or ""
                 );
                 $u_edits = json_encode($edits);
                 $st = $conn->prepare("INSERT INTO `rosters` (store_id, date_from, data, edits) VALUES ('$this->store_id', '$rdate', '$data', '$u_edits')");

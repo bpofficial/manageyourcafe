@@ -31,12 +31,13 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 function email($email, $data, $type) {
     #region
-    global $uppername, $name, $conn, $error, $store_id;
+    global $name, $conn, $error, $DIR;
     if($type == "roster") {
         $data = json_decode($data,true);
+        $name = ($DIR != "dev") ? ucfirst($name) : "Developer";
         try {
             $mail = new PHPMailer(true);
-            $mail->setFrom('mail@manageyour.cafe', $uppername);                           
+            $mail->setFrom('mail@manageyour.cafe', $name);                           
             $mail->isSMTP();                                     
             $mail->Host = 's121.syd2.hostingplatform.net.au';
             $mail->SMTPAuth = true;                       
@@ -50,23 +51,12 @@ function email($email, $data, $type) {
             $mail->Body = base64_decode($data['content']);
             $mail->send();
         } catch (Exception $e) {
-            if($_SESSION['debug']) {
-                $error->add_error("%cError: ". '%cMessage could not be sent. %cMailer Error: %c' . $e->getMessage() . '%c', ['font-weight:bold;', 'color:black;', 'color:red;', 'font-style:italic;','color:black'], true);
-            } else {
-                error_log('Message could not be sent. Mailer Error: ' . $e->getMessage(), 3, $LOG);
-            }
-            return false;
-        } catch (phpmailerException $e) {
-            if($_SESSION['debug']) {
-                $error->add_error("%cError: ". '%cMessage could not be sent. %cMailer Error: %c' . $e->errorMessage() . '%c', ['font-weight:bold;', 'color:black;', 'color:red;', 'font-style:italic;','color:black'], true);
-            } else {
-                error_log('Message could not be sent. Mailer Error: ' . $e->errorMessage(), 3, $LOG);
-            }
+            $error->add_error("%cError: ". '%cMessage could not be sent. %cMailer Error: %c' . $e->getMessage() . '%c', ['font-weight:bold;', 'color:black;', 'color:red;', 'font-style:italic;','color:black'], true);
             return false;
         }
         return true;
     } else {
-        return;
+        return false;
     }
     #endregion
 }

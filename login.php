@@ -12,15 +12,15 @@ if(isset($_SESSION)) {
     	<meta charset="UTF-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" media="all">       
-        <link href="cafesuite/css/master.css" rel="stylesheet" media="all">
-        <link href="cafesuite/css/custom.css" rel="stylesheet" media="all">
-    	<link rel="stylesheet" type="text/css" href="cafesuite/css/login/util.css">
-    	<link rel="stylesheet" type="text/css" href="cafesuite/css/login/main.css">
-        <link rel="icon" type="image/png" sizes="96x96" href="cafesuite/images/login/favicon.png"> 
+        <link href="sources/css/master.css" rel="stylesheet" media="all">
+        <link href="sources/css/custom.css" rel="stylesheet" media="all">
+    	<link rel="stylesheet" type="text/css" href="sources/css/login/util.css">
+    	<link rel="stylesheet" type="text/css" href="sources/css/login/main.css">
+        <link rel="icon" type="image/png" sizes="96x96" href="sources/images/login/favicon.png"> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <link rel="manifest" href="cafesuite/images/login/manifest.json">
+        <link rel="manifest" href="sources/images/login/manifest.json">
         <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="cafesuite/images/login/ms-icon-144x144.png">
+        <meta name="msapplication-TileImage" content="sources/images/login/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
 		<style>
 			.container-login100::before {

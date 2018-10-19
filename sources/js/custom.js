@@ -3,7 +3,7 @@ function start(websocketServerLocation){
     window.client = new WebSocket(websocketServerLocation);
     window.client.onerror = function() {/*console.log('Connection Error');*/};
     window.client.onopen = function open () {};
-    window.client.onclose = function() {setTimeout(function(){start('wss://dt.manageyour.cafe:58444/')}, 5000);};
+    window.client.onclose = function() {setTimeout(function(){start('wss://dt.manageyour.cafe'+ENV_PORT+'/')}, 5000);};
     window.client.onmessage = function (message) {
         message = JSON.parse(message.data);
         if(message.type == "NOTI") {
@@ -78,7 +78,7 @@ function req(type, page, message, data, dataType, token) {
     send(msg, 1);
 }
 */
-start('wss://dt.manageyour.cafe:58443/');
+start('wss://dt.manageyour.cafe:'+ENV_PORT+'/');
 var user_data = [];
 class roster {
     static build () {
@@ -415,7 +415,7 @@ class roster {
         $.ajax({
             type:"POST",
             url:"backend/ajax/rostersfunc.php",
-            dataType:"json",
+            dataType:'json',
             data:{message:"UPDATE_ROSTER",data:ret},
             success:function(a) {
                 if(!a.success) {

@@ -7,7 +7,7 @@ class system {
         </div>
 HTML;
 
-    public function __construct($session) {
+    public function __construct($session) { //could add classes to array to handle
         global $error;
         $error->add_error("%cConstructing system.", ['color:black;'], true);
         if(!empty($session)) {
@@ -21,6 +21,7 @@ HTML;
             $this->store_id = $_SESSION['store_id'];
             $this->priv = $_SESSION['priv'];
         }
+
     }
 
     public function humanTiming($time) {
@@ -43,6 +44,8 @@ HTML;
         }
         #endregion
     }
+
+
 }
 
 ?>

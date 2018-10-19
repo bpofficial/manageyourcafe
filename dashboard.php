@@ -1,5 +1,6 @@
 <?php
- (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
+header("Link: </dev/sources/css/master.css>; rel=preload; as=style,</dev/sources/css/custom.css>; rel=preload; as=style,</dev/sources/css/vendor/font-awesome.min.css>; rel=preload; as=style,</dev/sources/css/vendor/hamburgers.min.css>; rel=preload; as=style,</dev/sources/css/vendor/jquery-ui.min.css>; rel=preload; as=style,</dev/sources/css/vendor/material-design-iconic-font.min.css>; rel=preload; as=style,</dev/sources/css/vendor/perfect-scrollbar.min.css>; rel=preload; as=style,</dev/sources/css/vendor/poppins.css>; rel=preload; as=style,</dev/sources/css/vendor/select2.min.css>; rel=preload; as=style,</dev/sources/css/vendor/tempus.css>; rel=preload; as=style,</dev/sources/js/custom.js>; rel=preload; as=script,</dev/sources/js/popper.min.js>; rel=preload; as=script,</dev/sources/js/bootstrap.min.js>; rel=preload; as=script,</dev/sources/js/master.js>; rel=preload; as=script,</dev/sources/css/fonts/Material-Design-Iconic-Font.woff2>; rel=preload; as=font,</dev/sources/css/webfonts/fa-solid-900.woff2>; rel=preload; as=font");
+(isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
 session_start();
 include_once('backend/php/config.php');
 include_once('backend/php/session.php');
@@ -8,6 +9,7 @@ $st = $conn->prepare("SELECT * FROM `settings` WHERE `store_id`='$store_id'");
 $st->execute();
 $settings = $st->fetchAll(PDO::FETCH_ASSOC);
 $settings = $settings[0];
+echo '<script> var ENV_PORT = ' . $node_port . ';</script>'
 ?>
 <!DOCTYPE html>
 <html lang="en" style="overflow-y: scroll;">
@@ -15,17 +17,17 @@ $settings = $settings[0];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" media="all">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/0.9.3/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet">
-    <link href="cafesuite/css/master.css" rel="stylesheet" media="all">
-    <link href="cafesuite/css/custom.css" rel="stylesheet" media="all">
-    <link href="cafesuite/css/roster.css" rel="stylesheet" media="all">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.4.0/css/perfect-scrollbar.min.css" rel="stylesheet" media="all">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet" media="all">
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="sources/css/vendor/tempus.css"                             rel="stylesheet" media="all">
+    <link href="sources/css/vendor/font-awesome.min.css"                   rel="stylesheet" media="all">
+    <link href="sources/css/vendor/material-design-iconic-font.min.css"    rel="stylesheet" media="all">
+    <link href="sources/css/vendor/hamburgers.min.css"                     rel="stylesheet" media="all">
+    <link href="sources/css/vendor/jquery-ui.min.css"                      rel="stylesheet" media="all">
+    <link href="sources/css/vendor/perfect-scrollbar.min.css"              rel="stylesheet" media="all">
+    <link href="sources/css/vendor/poppins.css"                            rel="stylesheet" media="all">
+    <link href="sources/css/vendor/select2.min.css"                        rel="stylesheet" media="all">
+    <link href="sources/css/master.css"                                    rel="stylesheet" media="all">
+    <link href="sources/css/custom.css"                                    rel="stylesheet" media="all">
+    <link href="sources/css/roster.css"                                    rel="stylesheet" media="all">
     <script>
         var t0;
         String.prototype.escapeSpecialChars = function() {return this.replace(/\\n/g, "\\n").replace(/\\'/g, "\\'").replace(/\\"/g, '\\"').replace(/\\&/g, "\\&").replace(/\\r/g, "\\r").replace(/\\t/g, "\\t").replace(/\\b/g, "\\b").replace(/\\f/g, "\\f");};
@@ -52,7 +54,7 @@ $settings = $settings[0];
             height:     100%;
             width:      100%;
             background: rgba(229, 229, 229, 1) 
-                        url('https://manageyour.cafe/dev/cafesuite/images/load.gif')  
+                        url('https://manageyour.cafe/dev/sources/images/load.gif')  
                         no-repeat
                         center;
         }
@@ -134,7 +136,7 @@ $settings = $settings[0];
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <!-- <img src="cafesuite/images/icon/logo.png"/> -->
+                    <!-- <img src="sources/images/icon/logo.png"/> -->
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1" >
@@ -208,7 +210,7 @@ $settings = $settings[0];
                                 <div class="account-wrap" style="float:right;">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="cafesuite/images/icon/avatar-01.jpg" alt="user" />
+                                            <img src="sources/images/icon/avatar-01.jpg" alt="user" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" style="pointer-events: none;"><?php echo ucfirst($_SESSION['uname']); ?></a>
@@ -217,7 +219,7 @@ $settings = $settings[0];
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="cafesuite/images/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img src="sources/images/icon/avatar-01.jpg" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
@@ -259,15 +261,14 @@ $settings = $settings[0];
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/en-au.js"></script>
-    <script type="text/javascript" src="cafesuite/js/popper.min.js"></script>
-    <script type="text/javascript" src="cafesuite/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="sources/js/popper.min.js"></script>
+    <script type="text/javascript" src="sources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.4.0/perfect-scrollbar.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-    <script type="text/javascript" src="cafesuite/js/master.js"></script>
-    <script type="text/javascript" src="cafesuite/js/custom.js"></script>
-    <script type="text/javascript" src="cafesuite/js/table-fixer.jquery.js"></script>
+    <script type="text/javascript" src="sources/js/master.js"></script>
+    <script type="text/javascript" src="sources/js/custom.js"></script>
     <script type="text/javascript">
         function spin(on) {
             if(on) {
@@ -285,19 +286,28 @@ $settings = $settings[0];
         });
         $(document).ajaxComplete(function( event, xhr, settings ) {
             var result = xhr.responseText;
+            console.table(xhr);
             if(result != '') {
-                result = JSON.parse(result);
-                if("errors" in result){ 
-                    $("#error").append(window.atob(result.errors));
-                }
-                if("redirect" in result) {
-                    window.location = result.redirect;
-                }
-                if("time" in result) {
-                    console.log('Backend e-time: '+result.time);
-                }
-                if(result.success) {
-                    spin(false);
+                try {
+                    try {
+                        result = JSON.parse(result);
+                    } catch {
+                        result = result;
+                    }
+                    if("errors" in result){ 
+                        $("#error").append(window.atob(result.errors));
+                    }
+                    if("redirect" in result) {
+                        window.location = result.redirect;
+                    }
+                    if("time" in result) {
+                        console.log('Backend e-time: '+result.time);
+                    }
+                    if(result.success) {
+                        spin(false);
+                    }
+                } catch (err) {
+                    console.log(err);
                 }
             }
         });
@@ -311,7 +321,6 @@ $settings = $settings[0];
             $.ajax({
                 type: "GET",
                 url: 'backend/ajax/' + dash + '.php',
-                dataType:'text',
                 data: 
                     {
                         message: mes
