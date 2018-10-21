@@ -40,6 +40,6 @@
     defined("TAB3") or define("TAB3", "\t\t\t");
     defined("TAB4") or define("TAB4", "\t\t\t\t");
     defined("TAB5") or define("TAB5", "\t\t\t\t\t");
-
+    $error = new errorHandle;
     (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
 ?>

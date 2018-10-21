@@ -3,20 +3,20 @@
 session_start();
 header('Content-type: text/html');
 require('../php/config.php');
-$error = new errorHandle;
 #endregion
 if ($_REQUEST['message'] === "REQ_PAGE") {
     header("Link: </dev/sources/css/roster.css>; rel=preload; as=style");
     $page = new page;
     exit($page->roster());
 } else if ($_POST['message'] === "UPDATE_ROSTER") {
+    $error->add_error("<-- [AJAX=>POST]: Add new roster -->");
     $roster = new roster;
     exit($roster->add($_POST['data']));
 } else if ($_POST['message'] === "REMOVE_ROSTER") {
     $roster = new roster;
     exit($roster->delete($_POST['data']));
 } else if ($_POST['message'] === "SAVE_ROSTER") {
-    $data['data'] = $_POST['data']; $data['la'] = $_POST['la'];
+    $data['data'] = json_decode($_POST['data'],true); $data['la'] = $_POST['la'];
     $roster = new roster;
     exit($roster->save($data));
 } else if ($_REQUEST['message'] === "REQ_SAVED") {

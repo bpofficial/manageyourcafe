@@ -22,8 +22,4 @@ foreach($data as $key => $val) {
 }
 echo '104 <br/>';
 echo $data2['104'].' <br/>';
-
-
-//[id][store_id][date_from][data][edits][saved]
-//[id][store_id][date_from][$data2][edits][0]
 ?>

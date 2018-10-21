@@ -100,10 +100,11 @@ class roster {
             }
             m[key] = data[n].value;
         }
-        result.startDate = document.getElementById("date-input").value;
-        var comments = $("#roster-form textarea#comments").val();
-        result.comments = window.btoa(comments.escapeSpecialChars());
-        result.time = Date.now();
+        result.startDate = Math.round((moment(document.getElementById("date-input").value, "DD/MM/YYYY").valueOf()) / 1000);
+        console.log(result.startDate);
+        result.creationDate = Math.round(moment().valueOf() / 1000);
+        //var comments = $("#roster-form textarea#comments").val();
+        result.comments = window.btoa(($("#roster-form textarea#comments").val()).escapeSpecialChars()) || "";
         return JSON.stringify(result);
     }
     static update(data) {
@@ -159,7 +160,7 @@ class roster {
                         console.log(a);
                     } else {
                         var data = JSON.parse(window.atob(a.data));
-                        $("#roster-form textarea#comments").val(window.atob(data.comments));
+                        $("#roster-form textarea#comments").val(('comments' in a) ? $("#roster-form textarea#comments").val(window.atob(data.comments)) : "");
                         roster.update(data) ? roster.closeModal() : false;
                     }
                 }
@@ -225,6 +226,14 @@ class roster {
                     var table = ``;
                     for (var key in d) {
                         var prop = d[key];
+                        if(prop.label == "save" || prop.startDate == "none") {
+                            prop.startDate = "";
+                        } else { 
+                            prop.startDate = moment.unix(prop.startDate).utcOffset('+1000').format('DD/MM/YYYY');
+                        }
+                        if(prop.creationDate != "none") { 
+                            prop.creationDate = moment.unix(prop.creationDate).utcOffset('+1000').format('DD/MM/YYYY HH:mm');
+                        }
                         user_data[prop.id] = prop;
                         var ext = prop['md'];
                         var ext_data = ``;
@@ -237,6 +246,8 @@ class roster {
                                 <td></td>
                                 <td>
                                     `+name+`
+                                </td>
+                                <td>
                                 </td>
                                 <td>
                                     `+user.wage+`        
@@ -264,7 +275,14 @@ class roster {
                                         <span>
                                             `+prop.poster+`
                                         </span>
-                                        <h6>`+prop.date+`</h6>
+                                        <h6>`+prop.creationDate+`</h6>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="table-data__info" style="text-align:initial;">
+                                        <span>
+                                            `+prop.startDate+`
+                                        </span>
                                     </div>
                                 </td>
                                 <td>
@@ -287,6 +305,7 @@ class roster {
                             <tr>
                                 <th></th>
                                 <th>name</th>
+                                <th></th>
                                 <th>rate</th>
                                 <th>hours</th>
                                 <th>est. cost</th>
@@ -313,7 +332,7 @@ class roster {
                                         position: relative;
                                     }
                                     .rl-opt i {
-                                        font-size: 20px;
+                                        font-size: 30px;
                                         color: #808080;
                                         text-align: center;
                                         vertical-align: middle;
@@ -351,8 +370,8 @@ class roster {
                                         resize: none;
                                     }
                                     .rtable-info h6 {
-                                        font-size: 14px;
-                                        color: grey;
+                                        font-size: 0.8rem;
+                                        color: #9a9a9a;
                                         text-transform: capitalize;
                                         font-weight: 400;
                                     }
@@ -378,6 +397,7 @@ class roster {
                                                                     </label>
                                                                 </td>
                                                                 <td style="text-align:initial;">created</td>
+                                                                <td>used</td>
                                                                 <td>status</td>
                                                                 <td>hours</td>
                                                                 <td>est. cost</td>
