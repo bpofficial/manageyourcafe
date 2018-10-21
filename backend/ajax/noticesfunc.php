@@ -11,14 +11,9 @@ header('Content-type: text/html');
 #endregion 
 if($_REQUEST['message'] == "REQ_PAGE") {
     #region
-    (isset($_SESSION)) ? ((session_check('store_id', $_SESSION)) ? true : exit(json_encode(array('redirect'=>"https://manageyour.cafe/".$DIR."/login")))) : false;
-    $notice = new page;
-    $html = $notice->generateNoticePage($store_id, $name);
-    if($_SESSION['debug']) {
-        exit(json_encode(array('success' => true,'value' => base64_encode($html),'errors' => $error->generate())));
-    } else {
-        exit(json_encode(array('success' => true,'value' => base64_encode($html))));
-    }
+    $page = new page;
+    $page = $page->notice();
+    exit($page);
     #endregion
 } else if ($_REQUEST['message'] == "NOTICE_UPDATE") {
     #region
