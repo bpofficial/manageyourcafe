@@ -20,6 +20,7 @@
 	require_once("PHPMailer/Exception.php");
 	require_once("PHPMailer/SMTP.php");
     require_once('functions.php');
+
     require_once($class_dir.'system/system.class.php');
     require_once($class_dir.'system/roster.system.class.php');
     require_once($class_dir.'system/calendar.system.class.php');
